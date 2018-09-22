@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="TimemanagementSystem">
+    <output-path>$PROJECT_DIR$/out/artifacts/TimemanagementSystem</output-path>
+    <root id="root">
+      <element id="archive" name="TimemanagementSystem.jar">
+        <element id="module-output" name="TimemanagementSystem" />
+      </element>
+    </root>
+  </artifact>
+</component>
