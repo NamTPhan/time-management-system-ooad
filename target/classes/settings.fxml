@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -13,8 +12,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPage" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsController">
-    <BorderPane fx:id="settingsPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #fe4042;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPage" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SettingsController">
+    <BorderPane fx:id="settingsPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: #fe4042;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
         <top>
             <Label alignment="CENTER" contentDisplay="CENTER" text="Settings" textFill="WHITE" BorderPane.alignment="CENTER">
                 <font>
@@ -33,12 +32,13 @@
                 <children>
                     <GridPane prefHeight="384.0" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="483.0" minWidth="10.0" prefWidth="475.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="481.0" minWidth="10.0" prefWidth="70.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="479.0" minWidth="10.0" prefWidth="468.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="588.0" minWidth="10.0" prefWidth="588.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="481.0" minWidth="10.0" prefWidth="62.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="612.0" minWidth="10.0" prefWidth="589.0" />
                         </columnConstraints>
                         <rowConstraints>
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -49,57 +49,58 @@
                                     <Font name="System Bold" size="22.0" />
                                 </font>
                             </Label>
-                            <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Set Daily Goal" textFill="WHITE" GridPane.rowIndex="1">
+                            <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Daily Goal" textFill="WHITE" GridPane.rowIndex="2">
                                 <font>
                                     <Font name="System Bold" size="22.0" />
                                 </font>
                             </Label>
-                            <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Short Break Duration (minutes)" textFill="WHITE" GridPane.rowIndex="2">
+                            <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Short Break Duration (minutes)" textFill="WHITE" GridPane.rowIndex="3">
                                 <font>
                                     <Font name="System Bold" size="22.0" />
                                 </font>
                             </Label>
-                            <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Long Break Duration (minutes)" textFill="WHITE" GridPane.rowIndex="3">
+                            <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Long Break Duration (minutes)" textFill="WHITE" GridPane.rowIndex="4">
                                 <font>
                                     <Font name="System Bold" size="22.0" />
                                 </font>
                             </Label>
                             <ComboBox fx:id="soundChoice" prefHeight="31.0" prefWidth="240.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                            <Slider fx:id="dailyGoalSlider" blockIncrement="1.0" majorTickUnit="5.0" max="20.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <Slider fx:id="dailyGoalSlider" blockIncrement="1.0" majorTickUnit="5.0" max="20.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                 <GridPane.margin>
                                     <Insets left="10.0" />
                                 </GridPane.margin>
                             </Slider>
-                            <Slider fx:id="shortBreakSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                            <Slider fx:id="shortBreakSlider" blockIncrement="1.0" majorTickUnit="5.0" max="15.0" min="5.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                 <GridPane.margin>
                                     <Insets left="10.0" />
                                 </GridPane.margin>
                             </Slider>
-                            <GridPane GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-                                <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="158.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="275.0" minWidth="10.0" prefWidth="129.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0" minWidth="10.0" prefWidth="165.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                    <RowConstraints maxHeight="26.0" minHeight="10.0" prefHeight="12.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="22.0" minHeight="6.0" prefHeight="6.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                <children>
-                                    <TextField fx:id="longBreak" onAction="#saveSettings" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                                </children>
-                            </GridPane>
-                            <Label fx:id="dailyGoalLabelSlider" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                            <Label fx:id="dailyGoalLabelSlider" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                 <font>
                                     <Font name="System Bold" size="20.0" />
                                 </font>
                             </Label>
-                            <Label fx:id="shortBreakLabelSlider" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                            <Label fx:id="shortBreakLabelSlider" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                 <font>
                                     <Font name="System Bold" size="20.0" />
                                 </font>
                             </Label>
+                     <Label fx:id="longBreakLabelSlider" text="0" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                        <font>
+                           <Font name="System Bold" size="20.0" />
+                        </font>
+                     </Label>
+                     <Slider fx:id="longBreakSlider" blockIncrement="1.0" majorTickUnit="5.0" max="30.0" min="15.0" minorTickCount="5" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                        <GridPane.margin>
+                           <Insets left="10.0" />
+                        </GridPane.margin>
+                     </Slider>
+                     <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Round Size (till long break)" textFill="WHITE" GridPane.rowIndex="1">
+                        <font>
+                           <Font name="System Bold" size="22.0" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="roundSizeChoice" prefHeight="31.0" prefWidth="240.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                         </children>
                     </GridPane>
                 </children>
@@ -108,15 +109,14 @@
       <bottom>
          <GridPane prefHeight="206.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
            <columnConstraints>
-             <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="99.0" />
-             <ColumnConstraints hgrow="SOMETIMES" maxWidth="568.0" minWidth="10.0" prefWidth="568.0" />
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+             <ColumnConstraints hgrow="SOMETIMES" maxWidth="359.0" minWidth="10.0" prefWidth="325.0" />
+             <ColumnConstraints hgrow="SOMETIMES" maxWidth="612.0" minWidth="10.0" prefWidth="612.0" />
+               <ColumnConstraints hgrow="SOMETIMES" maxWidth="365.0" minWidth="10.0" prefWidth="325.0" />
            </columnConstraints>
            <rowConstraints>
              <RowConstraints maxHeight="70.0" minHeight="9.0" prefHeight="70.0" vgrow="SOMETIMES" />
              <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
              <RowConstraints maxHeight="42.0" minHeight="8.0" prefHeight="42.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="25.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
            </rowConstraints>
             <children>
                   <Button fx:id="saveSettings" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#saveSettings" prefHeight="39.0" prefWidth="165.0" style="-fx-background-color: #4FC3F7;" text="Save settings" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
@@ -129,6 +129,11 @@
                      <Font name="System Bold" size="20.0" />
                   </font>
                </Label>
+               <Button fx:id="backToPomodoro" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#saveSettings" prefHeight="39.0" prefWidth="202.0" style="-fx-background-color: #66BB6A;" text="Back to Pomodoro" textFill="WHITE" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Button>
             </children>
          </GridPane>
       </bottom>

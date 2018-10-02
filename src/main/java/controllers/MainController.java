@@ -36,7 +36,7 @@ public class MainController {
      */
     private void startSession(){
         setTimerToDefault();        // Reset timer
-        toggleSessionButtons(); // Visually toggle between play and pause buttons
+        toggleSessionButtons();     // Visually toggle between play and pause buttons
 
         timeline.getKeyFrames().add(
                 new KeyFrame(Duration.seconds(1), event -> {
