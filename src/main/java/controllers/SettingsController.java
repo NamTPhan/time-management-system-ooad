@@ -31,8 +31,8 @@ public class SettingsController implements Initializable {
     @FXML
     private Button backToPomodoro, saveSettings;
 
-    private Settings configuredSettings;
     private int selectedRoundSize;
+    private Settings configuredSettings;
 
     private void setComboBoxData() {
         // Set sound options
@@ -76,11 +76,16 @@ public class SettingsController implements Initializable {
                 break;
         }
 
-//        configuredSettings.setSound(soundChoice.getSelectionModel().getSelectedIndex());
-//        configuredSettings.setRoundSize(selectedRoundSize);
-//        configuredSettings.setSessionGoal(Math.round((int) dailyGoalSlider.getValue()));
+        configuredSettings = new Settings();
+        Settings settings = configuredSettings.getCurrentSettings();
+        System.out.println(settings);
+        System.out.println(settings.getLengthShortBreak());
+        System.out.println(settings.getLengthLongBreak());
 
-//        <Add check function here. Check whether a db record is present then do UPDATE else INSERT>
+        // Test to get selected values
+        System.out.println(soundChoice.getSelectionModel().getSelectedIndex());
+        System.out.println(selectedRoundSize);
+        System.out.println(Math.round((int) dailyGoalSlider.getValue()));
 
         // Go back to home on click listener
         backToPomodoro.setOnAction(new EventHandler<ActionEvent>() {
