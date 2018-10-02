@@ -1,5 +1,9 @@
 package controllers;
 
+import javafx.scene.Node;
+import javafx.stage.Stage;
+import models.SetStage;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -104,6 +108,11 @@ public class MainController {
 
         if (timerSeconds <= 0 && timerMinutes <= 0)
             timeline.stop(); // Stop timer if it is at zero
+    }
+
+    public void loadSettingsScene(javafx.event.ActionEvent event) throws Exception {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        new SetStage(stage, "/settings.fxml");
     }
 }
 
