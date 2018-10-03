@@ -112,7 +112,7 @@ public class MainController {
 
     public void loadSettingsScene(javafx.event.ActionEvent event) throws Exception {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        new SetStage(stage, "/settings.fxml");
+        new SetStage(stage, "/views/settings.fxml");
     }
 }
 

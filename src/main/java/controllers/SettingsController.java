@@ -93,7 +93,7 @@ public class SettingsController implements Initializable {
             public void handle(ActionEvent event) {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 try {
-                    new SetStage(stage, "/main.fxml");
+                    new SetStage(stage, "/views/main.fxml");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
