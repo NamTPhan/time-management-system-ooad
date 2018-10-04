@@ -24,7 +24,7 @@ public class WritingActivity extends Activity {
     }
 
     public void setWordProgression(int wordProgression) {
-        this.wordProgression = wordProgression
+        this.wordProgression = wordProgression;
     }
 
 }
