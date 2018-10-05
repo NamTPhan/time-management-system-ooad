@@ -24,11 +24,9 @@ public class taskOverviewController {
     @FXML
     void initialize() {
         //  Test data to put on the task overview page.
+        Task task = new Task(null, null);
         ObservableList elements = FXCollections.observableArrayList();
-        elements.add("task1");
-        elements.add("reading");
-        elements.add("writing");
-        elements.add("Algorithms pages 1-30");
+        elements.add(task.getAllTasks());
         listView.setItems(elements);
     }
 

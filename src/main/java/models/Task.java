@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Task {
-//       static TempDBConnection dBConnection = new TempDBConnection();
-//    static Connection conn = dBConnection.connectDB();
-//    static PreparedStatement stmt;
-    MyJDBC myJDBC = new MyJDBC("timemanagement");
+    MyJDBC myJDBC = new MyJDBC("timemanagementooad");
 
     private String taskName;
     private Activity activity;
@@ -29,19 +26,23 @@ public class Task {
         this.taskName = taskName;
     }
 
-//    public List<Task> getAllTasks() {
-//        List<Task> taskList = new ArrayList<>()
-//
-//        try {
-//            String sql = "SELECT name FROM task";
-//            ResultSet resultSet = myJDBC.executeResultSetQuery(sql);
-//            while (resultSet.next()) {
-//                String name = resultSet.getString("name");
-//                taskList.add(name);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return taskList;
-//    }
+    public ArrayList<String> getAllTasks() {
+        ArrayList<String> taskList = new ArrayList<>();
+
+        try {
+            String sql = "SELECT name FROM task";
+            ResultSet resultSet = myJDBC.executeResultSetQuery(sql);
+            while (resultSet.next()) {
+                String name = resultSet.getString("name");
+                taskList.add(name);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return taskList;
+    }
+
+    public String getAllTasksPartTwo() {
+        return myJDBC.executeStringListQuery("SELECT name FROM task");
+    }
 }

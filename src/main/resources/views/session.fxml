@@ -72,7 +72,7 @@
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Pomodoro" />
-          <Menu disable="true" mnemonicParsing="false" text="Tasks" />
+          <Menu mnemonicParsing="false" text="Tasks" />
           <Menu disable="true" mnemonicParsing="false" text="Statistics" />
             <Menu disable="true" mnemonicParsing="false" text="Settings" />
         </menus>
