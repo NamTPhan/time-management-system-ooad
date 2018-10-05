@@ -66,6 +66,7 @@
                </font>
             </Label>
             <Button mnemonicParsing="false" onAction="#loadSettingsScene" text="Settings" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Button layoutX="413.0" layoutY="667.0" mnemonicParsing="false" onAction="#taskOverviewAction" text="TaskOverview" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </center>

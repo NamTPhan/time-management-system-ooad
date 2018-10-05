@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1280.0" style="-fx-background-color: red;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.taskOverviewController">
+   <children>
+      <ListView fx:id="listView" layoutX="317.0" layoutY="180.0" prefHeight="381.0" prefWidth="366.0" />
+      <Label layoutX="407.0" layoutY="59.0" text="Task overview">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font></Label>
+      <Button fx:id="addTask" layoutX="52.0" layoutY="200.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="97.0" text="Add task" />
+      <Button fx:id="editTask" layoutX="52.0" layoutY="250.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="97.0" text="Edit Task" />
+      <Button fx:id="deleteTask" layoutX="52.0" layoutY="300.0" mnemonicParsing="false" text="Delete Task" />
+      <Label layoutX="317.0" layoutY="157.0" prefHeight="21.0" prefWidth="366.0" style="-fx-border-color: Black; -fx-background-color: grey;" text="Name" textFill="WHITE" />
+      <Button fx:id="backToHome" layoutX="36.0" layoutY="28.0" mnemonicParsing="false" onAction="#backAction" text="Back" />
+   </children>
+</AnchorPane>

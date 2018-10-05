@@ -26,7 +26,7 @@ public class MyJDBC {
     // set for verbose logging of all queries
     private boolean verbose = true;
 
-    // remembers the first error message on the connection 
+    // remembers the first error message on the connection
     private String errorMessage = null;
 
     // constructors
@@ -53,7 +53,7 @@ public class MyJDBC {
                 password = "";
             }
 
-            // establish a connection to a named database on a specified server	
+            // establish a connection to a named database on a specified server
             String connStr = DB_DRIVER_PREFIX + serverURL + "/" + dbName + DB_DRIVER_PARAMETERS;
             log("Connecting " + connStr);
             this.connection = DriverManager.getConnection(connStr, account, password);
@@ -164,7 +164,7 @@ public class MyJDBC {
             }
             // close both statement and resultset
             s.close();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) { 
             error(ex);
         }
 
@@ -250,7 +250,7 @@ public class MyJDBC {
                 // echo the info of the next airport found
                 System.out.println(
                         rs.getString("id")
-                        + " " + rs.getString("name") + " " + rs.getString("location") + " " + rs.getString("state") + " " + rs.getString("country"));
+                                + " " + rs.getString("name") + " " + rs.getString("location") + " " + rs.getString("state") + " " + rs.getString("country"));
             }
             // close and release the resources
             rs.close();

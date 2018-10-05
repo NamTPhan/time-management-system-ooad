@@ -114,5 +114,10 @@ public class MainController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         new SetStage(stage, "/views/settings.fxml");
     }
+
+    public void taskOverviewAction(javafx.event.ActionEvent event) throws Exception {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        new SetStage(stage, "/views/taskOverview.fxml");
+    }
 }
 
