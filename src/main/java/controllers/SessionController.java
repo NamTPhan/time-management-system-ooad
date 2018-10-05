@@ -1,16 +1,13 @@
 package controllers;
 
-import javafx.scene.Node;
-import javafx.stage.Stage;
-import models.SetStage;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.util.Duration;
+import models.Session;
 
-public class MainController {
+public class SessionController {
 
     @FXML
     private Button playButton, pauseButton, stopButton;
@@ -20,6 +17,7 @@ public class MainController {
     private static final int SECONDS_IN_MINUTE = 60;
     private static final Integer START_TIME = (25 * SECONDS_IN_MINUTE);
 
+    private Session currentSession = new Session();
     private Timeline timeline;
     private int timerMinutes = START_TIME  / SECONDS_IN_MINUTE;
     private int timerSeconds = START_TIME  - (timerMinutes * SECONDS_IN_MINUTE);
@@ -27,21 +25,30 @@ public class MainController {
     public void initialize(){
         playButton.setOnAction(event ->  { startSession(); });
         pauseButton.setOnAction(event -> { pauseSession(); });
+        stopButton.setOnAction(event ->  { stopSession(); });
 
-        updateTimer();
+        viewUpdateTimer();
     }
 
     /**
      * Start a new session (or in future expansion to resume a old one)
      */
     private void startSession(){
-        setTimerToDefault();        // Reset timer
-        toggleSessionButtons();     // Visually toggle between play and pause buttons
+        System.out.println(currentSession.toString()); // This row is for testing #DELETE
+
+        if (currentSession == null){
+            currentSession = new Session();
+            setTimerToDefault();
+        } else {
+            createNewTimer();
+        }
+
+        toggleTimerButtons();     // Visually toggle between play and pause buttons
 
         timeline.getKeyFrames().add(
                 new KeyFrame(Duration.seconds(1), event -> {
                     timerSeconds--; // Decrease the seconds of the timer every second
-                    updateTimer();  // Visually update timer
+                    viewUpdateTimer();  // Visually update timer
                 }));
         timeline.playFromStart();
     }
@@ -50,22 +57,39 @@ public class MainController {
      * Temporarily stops the timer to resume later
      */
     private void pauseSession(){
-        timeline.stop();
+        updateInvestedTime();
 
-        toggleSessionButtons();
+        timeline.stop();
+        toggleTimerButtons();
+        System.out.println(currentSession.toString()); // This row is for testing #DELETE
     }
 
     /**
      * Stops the timer and resets the values
      */
     private void stopSession(){
+        updateInvestedTime();
+        System.out.println(currentSession.toString()); // This row is for testing #DELETE
+        currentSession = null; // Remove the reference to the object
 
+        timeline.stop();
+        setTimerToDefault();
+        toggleTimerButtons();
+    }
+
+    /**
+     *  Calculates and updates the time that is invested in a task
+     */
+    private void updateInvestedTime() {
+        int timeRemaining = ((timerMinutes * 60) + timerSeconds);
+        int investedTime = START_TIME - timeRemaining;
+        currentSession.setInvestedTime(investedTime);
     }
 
     /**
      * Toggles between the visibility of the play and pause button.
      */
-    private void toggleSessionButtons(){
+    private void toggleTimerButtons(){
         if (playButton.isVisible()) { // Hide play button, show pause and stop button
             playButton.setVisible(false);
             pauseButton.setVisible(true);
@@ -81,22 +105,27 @@ public class MainController {
      * Resets the timer to it's original time.
      */
     private void setTimerToDefault() {
-        if (timeline != null)
-            timeline.stop(); // Stop the old timer, if needed
-
-        // Create a new timer
-        timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE);
+        createNewTimer();
 
         // Converts the minutes and seconds
         timerMinutes = START_TIME / SECONDS_IN_MINUTE;
         timerSeconds = (START_TIME - (timerMinutes * SECONDS_IN_MINUTE));
+
+        viewUpdateTimer();
+    }
+
+    /**
+     *  Creates a new timer
+     */
+    private void createNewTimer(){
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
     }
 
     /**
      * Visually update the timer based on the timers variables
      */
-    private void updateTimer() {
+    private void viewUpdateTimer() {
         // Corrects minutes and seconds when they are out of bounds
         if (timerSeconds < 0){
             timerMinutes--;
@@ -108,16 +137,6 @@ public class MainController {
 
         if (timerSeconds <= 0 && timerMinutes <= 0)
             timeline.stop(); // Stop timer if it is at zero
-    }
-
-    public void loadSettingsScene(javafx.event.ActionEvent event) throws Exception {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        new SetStage(stage, "/views/settings.fxml");
-    }
-
-    public void taskOverviewAction(javafx.event.ActionEvent event) throws Exception {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        new SetStage(stage, "/views/taskOverview.fxml");
     }
 }
 
