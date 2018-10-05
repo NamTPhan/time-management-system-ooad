@@ -34,7 +34,6 @@ public class SessionController {
      * Start a new session (or in future expansion to resume a old one)
      */
     private void startSession(){
-        System.out.println(currentSession.toString()); // This row is for testing #DELETE
 
         if (currentSession == null){
             currentSession = new Session();
