@@ -18,7 +18,7 @@ public class Main extends Application {
         primaryStage.setTitle("Timemanagement");
         primaryStage.setScene(new Scene(root, WINDOW_HEIGHT, WINDOW_WIDTH));
         primaryStage.setResizable(false);
-
+        primaryStage.sizeToScene();
         primaryStage.show();
     }
 
