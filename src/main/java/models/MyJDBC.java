@@ -164,7 +164,7 @@ public class MyJDBC {
             }
             // close both statement and resultset
             s.close();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) { 
             error(ex);
         }
 

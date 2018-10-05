@@ -34,7 +34,7 @@ public class taskOverviewController {
 
     public void backAction(ActionEvent event) throws Exception {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        new SetStage(stage, "/main.fxml");
+        new SetStage(stage, "/views/main.fxml");
     }
 
 }

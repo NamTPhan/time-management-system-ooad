@@ -32,6 +32,3 @@ public class SetStage {
         stage.show();
     }
 }
-
-//    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//        new SetStage(stage, "/main.fxml");
