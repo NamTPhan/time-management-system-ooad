@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controllers/SessionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/models/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/session.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/controllers/SessionController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/models/Session.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/session.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/MainController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/MainController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/models/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Main.class" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,22 +113,32 @@
     <session id="248514544">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="2" />
+          <entry key="fxml" value="1" />
+          <entry key="java" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="2" />
+          <entry key="JAVA" value="10" />
+          <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="98" />
+          <entry key="dummy" value="1" />
+          <entry key="java" value="2228" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="98" />
+          <entry key="JAVA" value="2228" />
+          <entry key="PLAIN_TEXT" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
     </session>
@@ -130,22 +149,48 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controllers/SessionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="-102">
+              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+              <folding>
+                <element signature="method#initialize#0;class#SessionController#0" />
+                <element signature="e#756#785#0" />
+                <element signature="e#820#848#0" />
+                <element signature="e#882#910#0" />
+                <element signature="docComment;method#startSession#0;class#SessionController#0" />
+                <element signature="method#startSession#0;class#SessionController#0" />
+                <element signature="e#1413#1592#0" />
+                <element signature="docComment;method#pauseSession#0;class#SessionController#0" />
+                <element signature="method#pauseSession#0;class#SessionController#0" />
+                <element signature="docComment;method#stopSession#0;class#SessionController#0" />
+                <element signature="method#stopSession#0;class#SessionController#0" />
+                <element signature="docComment;method#updateInvestedTime#0;class#SessionController#0" />
+                <element signature="method#updateInvestedTime#0;class#SessionController#0" />
+                <element signature="docComment;method#toggleTimerButtons#0;class#SessionController#0" />
+                <element signature="method#toggleTimerButtons#0;class#SessionController#0" />
+                <element signature="docComment;method#setTimerToDefault#0;class#SessionController#0" />
+                <element signature="method#setTimerToDefault#0;class#SessionController#0" />
+                <element signature="docComment;method#createNewTimer#0;class#SessionController#0" />
+                <element signature="method#createNewTimer#0;class#SessionController#0" />
+                <element signature="docComment;method#updateTimer#0;class#SessionController#0" />
+                <element signature="method#updateTimer#0;class#SessionController#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/Session.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" selection-start-line="9" selection-end-line="27" />
+            <state relative-caret-position="323">
+              <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
               <folding>
-                <element signature="e#592#593#0" expanded="true" />
-                <element signature="e#620#621#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#376#377#0" expanded="true" />
+                <element signature="e#419#420#0" expanded="true" />
+                <element signature="e#465#466#0" expanded="true" />
+                <element signature="e#563#564#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,6 +204,14 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>toggleSessionButtons</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>toggleTimerButtons</replace>
+    </replaceStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -186,6 +239,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/controllers/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Session.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/SessionController.java" />
       </list>
     </option>
   </component>
@@ -197,8 +252,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="512" />
-    <option name="y" value="-28" />
+    <option name="x" value="511" />
+    <option name="y" value="-29" />
     <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
@@ -211,8 +266,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -271,7 +326,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -284,7 +338,7 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538494219915" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538737472221" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Gluon/SceneBuilder.lnk" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -398,11 +452,12 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
       <workItem from="1537567601538" duration="3823000" />
+      <workItem from="1538735666111" duration="1801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9483000" />
+    <option name="totallyTimeSpent" value="14545000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -417,7 +472,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16308725" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16510066" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -426,7 +481,7 @@
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32624114" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2397163" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -437,7 +492,7 @@
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32956153" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32956153" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32907802" />
       <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -511,13 +566,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/SidePanelController.java" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/splash.fxml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/SplashController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/MyJDBC.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="109" column="7" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -539,36 +587,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/MyJDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="109" column="7" selection-start-line="109" selection-start-column="7" selection-end-line="109" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="64" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/javafx/event/EventHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="251">
           <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/main.fxml">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="95">
+          <caret line="747" selection-start-line="747" selection-end-line="747" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Main.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/javafx-src.zip!/com/sun/glass/ui/win/WinApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" selection-start-line="9" selection-end-line="27" />
+        <state relative-caret-position="95">
+          <caret line="176" selection-start-line="176" selection-end-line="176" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/session.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="81" lean-forward="true" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Session.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
           <folding>
-            <element signature="e#592#593#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#465#466#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/SessionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="-102">
+          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding>
+            <element signature="method#initialize#0;class#SessionController#0" />
+            <element signature="e#756#785#0" />
+            <element signature="e#820#848#0" />
+            <element signature="e#882#910#0" />
+            <element signature="docComment;method#startSession#0;class#SessionController#0" />
+            <element signature="method#startSession#0;class#SessionController#0" />
+            <element signature="e#1413#1592#0" />
+            <element signature="docComment;method#pauseSession#0;class#SessionController#0" />
+            <element signature="method#pauseSession#0;class#SessionController#0" />
+            <element signature="docComment;method#stopSession#0;class#SessionController#0" />
+            <element signature="method#stopSession#0;class#SessionController#0" />
+            <element signature="docComment;method#updateInvestedTime#0;class#SessionController#0" />
+            <element signature="method#updateInvestedTime#0;class#SessionController#0" />
+            <element signature="docComment;method#toggleTimerButtons#0;class#SessionController#0" />
+            <element signature="method#toggleTimerButtons#0;class#SessionController#0" />
+            <element signature="docComment;method#setTimerToDefault#0;class#SessionController#0" />
+            <element signature="method#setTimerToDefault#0;class#SessionController#0" />
+            <element signature="docComment;method#createNewTimer#0;class#SessionController#0" />
+            <element signature="method#createNewTimer#0;class#SessionController#0" />
+            <element signature="docComment;method#updateTimer#0;class#SessionController#0" />
+            <element signature="method#updateTimer#0;class#SessionController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
