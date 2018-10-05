@@ -14,9 +14,11 @@ public class Task {
     MyJDBC myJDBC = new MyJDBC("timemanagement");
 
     private String taskName;
+    private Activity activity;
 
-    public Task(String taskName) {
+    public Task(String taskName, Activity activity) {
         this.taskName = taskName;
+        this.activity = activity;
     }
 
     public String getTaskName() {
