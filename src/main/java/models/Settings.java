@@ -2,8 +2,9 @@ package models;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
-public class Settings {
+public class Settings implements GenericDAO<Settings> {
 
     private int settingsId, roundSize, sessionGoal, sound, lengthShortBreak, lengthLongBreak;
     private Settings databaseSettings;
@@ -53,10 +54,6 @@ public class Settings {
         return  databaseSettings;
     }
 
-//    public Settings updateSettingsInDatabase() {
-//
-//    }
-
     // Getters
     public int getSettingsId() {
         return settingsId;
@@ -101,5 +98,35 @@ public class Settings {
 
     public void setLengthLongBreak(int lengthLongBreak) {
         this.lengthLongBreak = lengthLongBreak;
+    }
+
+    @Override
+    public List<Settings> getAll() {
+        return null;
+    }
+
+    @Override
+    public Settings getByIndex(int index) {
+        return null;
+    }
+
+    @Override
+    public void save(Settings settings) {
+
+    }
+
+    @Override
+    public void update(int index, Settings settings) {
+
+    }
+
+    @Override
+    public void delete(int index, Settings settings) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
     }
 }
