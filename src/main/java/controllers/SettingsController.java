@@ -77,10 +77,6 @@ public class SettingsController implements Initializable {
         }
 
         configuredSettings = new Settings();
-        Settings settings = configuredSettings.getCurrentSettings();
-        System.out.println(settings);
-        System.out.println(settings.getLengthShortBreak());
-        System.out.println(settings.getLengthLongBreak());
 
         // Test to get selected values
         System.out.println(soundChoice.getSelectionModel().getSelectedIndex());
