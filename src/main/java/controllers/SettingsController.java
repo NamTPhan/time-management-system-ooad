@@ -14,8 +14,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
+import models.GenericDAO;
 import models.SetStage;
 import models.Settings;
+import models.SettingsDaoImplementation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,7 +34,7 @@ public class SettingsController implements Initializable {
     private Button backToPomodoro, saveSettings;
 
     private int selectedRoundSize;
-    private Settings configuredSettings;
+    private GenericDAO<Settings> settingsDao = new SettingsDaoImplementation();
 
     private void setComboBoxData() {
         // Set sound options
@@ -76,7 +78,9 @@ public class SettingsController implements Initializable {
                 break;
         }
 
-        configuredSettings = new Settings();
+        settingsDao.getByIndex(1);
+
+        System.out.println(settingsDao.getByIndex(1).getLengthLongBreak());
 
         // Test to get selected values
         System.out.println(soundChoice.getSelectionModel().getSelectedIndex());
