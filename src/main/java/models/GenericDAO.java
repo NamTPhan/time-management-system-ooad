@@ -8,11 +8,11 @@ public interface GenericDAO<T> {
 
     T getByIndex(int index) throws DAOException;
 
-    void save(T t) throws DAOException;
+    boolean save(T t) throws DAOException;
 
-    void update(int index, T t) throws DAOException;
+    boolean update(int index, T t) throws DAOException;
 
-    void delete(int index, T t) throws DAOException;
+    boolean delete(int index, T t) throws DAOException;
 
-    void deleteAll() throws DAOException;
+    boolean deleteAll() throws DAOException;
 }

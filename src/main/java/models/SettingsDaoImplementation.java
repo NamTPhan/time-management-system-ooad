@@ -40,22 +40,36 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
     }
 
     @Override
-    public void save(Settings settings) throws DAOException {
+    public boolean save(Settings settings) throws DAOException {
 
+        try {
+            DatabaseConnection dbConnection = DatabaseConnection.getInstance();
+            String insertQuery =
+                    "INSERT INTO settings (settingsId, dailyRoundSize, dailySessionGoal,sound, lengthShortBreak, lengthLongBreak)" +
+                            "VALUES (" + null + ", " + settings.getRoundSize() + ", "
+                            + settings.getSessionGoal() + ", " + settings.getSound() + ", " + settings.getLengthShortBreak() + ", " + settings.getLengthLongBreak() + ");";
+
+            dbConnection.executeUpdateQuery(insertQuery);
+
+            return true;
+        } catch (SQLException exception) {
+            System.out.println(exception);
+            return false;
+        }
     }
 
     @Override
-    public void update(int index, Settings settings) throws DAOException {
-
+    public boolean update(int index, Settings settings) throws DAOException {
+        return false;
     }
 
     @Override
-    public void delete(int index, Settings settings) throws DAOException {
-
+    public boolean delete(int index, Settings settings) throws DAOException {
+        return false;
     }
 
     @Override
-    public void deleteAll() throws DAOException {
-
+    public boolean deleteAll() throws DAOException {
+        return false;
     }
 }

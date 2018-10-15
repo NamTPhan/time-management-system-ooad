@@ -91,7 +91,7 @@ public class DatabaseConnection {
      * @param sql the full sql text of the query.
      * @return the number of rows that have been impacted, -1 on error
      */
-    private int executeUpdateQuery(String sql) {
+    public int executeUpdateQuery(String sql) {
         try {
             Statement s = this.connection.createStatement();
             log(sql);

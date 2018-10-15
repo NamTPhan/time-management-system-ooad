@@ -21,6 +21,14 @@ public class Settings {
         this.lengthLongBreak = lengthLongBreak;
     }
 
+    public Settings(int roundSize, int sessionGoal, int sound, int lengthShortBreak, int lengthLongBreak) {
+        this.roundSize = roundSize;
+        this.sessionGoal = sessionGoal;
+        this.sound = sound;
+        this.lengthShortBreak = lengthShortBreak;
+        this.lengthLongBreak = lengthLongBreak;
+    }
+
     public Settings() {
         this(DEFAULT_SETTINGS_ID, DEFAULT_ROUND_SIZE, DEFAULT_SESSION_GOAL, DEFAULT_SOUND, DEFAULT_SHORT_BREAK, DEFAULT_LONG_BREAK);
     }
@@ -51,6 +59,11 @@ public class Settings {
     }
 
     // Setters
+
+    public void setSettingsId(int settingsId) {
+        this.settingsId = settingsId;
+    }
+
     public void setRoundSize(int roundSize) {
         this.roundSize = roundSize;
     }

@@ -33,6 +33,7 @@ public class SettingsController implements Initializable {
     @FXML
     private Button backToPomodoro, saveSettings;
 
+    private Settings settings = new Settings();
     private int selectedRoundSize;
     private GenericDAO<Settings> settingsDao = new SettingsDaoImplementation();
 
@@ -78,14 +79,22 @@ public class SettingsController implements Initializable {
                 break;
         }
 
+        // Dao getByIndex method test
         settingsDao.getByIndex(1);
-
         System.out.println(settingsDao.getByIndex(1).getLengthLongBreak());
 
+        // Dao save method test
+        settings.setRoundSize(selectedRoundSize);
+        settings.setSessionGoal(Math.round((int) dailyGoalSlider.getValue()));
+        settings.setSound(soundChoice.getSelectionModel().getSelectedIndex());
+        settings.setLengthShortBreak(Math.round((int) shortBreakSlider.getValue()));
+        settings.setLengthLongBreak(Math.round((int) longBreakSlider.getValue()));
+        settingsDao.save(settings);
+
         // Test to get selected values
-        System.out.println(soundChoice.getSelectionModel().getSelectedIndex());
-        System.out.println(selectedRoundSize);
-        System.out.println(Math.round((int) dailyGoalSlider.getValue()));
+//        System.out.println(soundChoice.getSelectionModel().getSelectedIndex());
+//        System.out.println(selectedRoundSize);
+//        System.out.println(Math.round((int) dailyGoalSlider.getValue()));
 
         // Go back to home on click listener
         backToPomodoro.setOnAction(new EventHandler<ActionEvent>() {
