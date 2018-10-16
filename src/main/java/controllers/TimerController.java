@@ -10,7 +10,7 @@ import models.Session;
 
 import java.awt.*;
 
-public abstract class  TimerController {
+public abstract class TimerController {
     // Initialize JavaFX object references
     @FXML
     protected Button playButton, pauseButton, stopButton;
@@ -30,38 +30,46 @@ public abstract class  TimerController {
     /**
      * This constructor is accessible from subclasses so users can create
      * subcontrollers that can use different timer durations
-     *
+     * <p>
      * Constructs a object of TimerController data type
      * with duration and standard color red
+     *
      * @param duration minutes in the timer
      */
-    protected TimerController(int duration){
+    protected TimerController(int duration) {
         DURATION = duration * SECONDS_IN_MINUTE;
         COLOR = Color.RED;
-        timerMinutes = DURATION  / SECONDS_IN_MINUTE;
+        timerMinutes = DURATION / SECONDS_IN_MINUTE;
         timerSeconds = DURATION - (timerMinutes * SECONDS_IN_MINUTE);
     }
 
     /**
      * This constructor is accessible from subclasses so users can create
      * subcontrollers that can use different timer durations
-     *
+     * <p>
      * Constructs a object of TimerController data type
      * with duration and a given color
+     *
      * @param duration minutes in the timer
-     * @param color of the timer
+     * @param color    of the timer
      */
-    protected TimerController(int duration, Color color){
+    protected TimerController(int duration, Color color) {
         DURATION = duration * SECONDS_IN_MINUTE;
         COLOR = color;
-        timerMinutes = DURATION  / SECONDS_IN_MINUTE;
+        timerMinutes = DURATION / SECONDS_IN_MINUTE;
         timerSeconds = DURATION - (timerMinutes * SECONDS_IN_MINUTE);
     }
 
-    public void initialize(){
-        playButton.setOnAction(event ->  { startTimer(); });
-        pauseButton.setOnAction(event -> { pauseTimer(); });
-        stopButton.setOnAction(event ->  { stopTimer(); });
+    public void initialize() {
+        playButton.setOnAction(event -> {
+            startTimer();
+        });
+        pauseButton.setOnAction(event -> {
+            pauseTimer();
+        });
+        stopButton.setOnAction(event -> {
+            stopTimer();
+        });
 
         viewUpdateTimer();
     }
@@ -69,8 +77,8 @@ public abstract class  TimerController {
     /**
      * Start a new session (or in future expansion to resume a old one)
      */
-    public void startTimer(){
-        if (currentSession == null){
+    public void startTimer() {
+        if (currentSession == null) {
             currentSession = new Session();
             setTimerToDefault();
         } else
@@ -89,7 +97,7 @@ public abstract class  TimerController {
     /**
      * Temporarily stops the timer to resume later
      */
-    public void pauseTimer(){
+    public void pauseTimer() {
         updateInvestedTime();
 
         timeline.stop();
@@ -100,7 +108,7 @@ public abstract class  TimerController {
     /**
      * Stops the timer and resets the values
      */
-    public void stopTimer(){
+    public void stopTimer() {
         updateInvestedTime();
         System.out.println(currentSession.toString()); // This row is for testing #DELETE
         currentSession = null; // Remove the reference to the object
@@ -111,7 +119,7 @@ public abstract class  TimerController {
     }
 
     /**
-     *  Calculates and updates the time that is invested in a task
+     * Calculates and updates the time that is invested in a task
      */
     private void updateInvestedTime() {
         int timeRemaining = ((timerMinutes * 60) + timerSeconds);
@@ -122,7 +130,7 @@ public abstract class  TimerController {
     /**
      * Toggles between the visibility of the play and pause button.
      */
-    private void toggleTimerButtons(){
+    private void toggleTimerButtons() {
         if (playButton.isVisible()) { // Hide play button, show pause and stop button
             playButton.setVisible(false);
             pauseButton.setVisible(true);
@@ -148,9 +156,9 @@ public abstract class  TimerController {
     }
 
     /**
-     *  Creates a new timer
+     * Creates a new timer
      */
-    private void createNewTimer(){
+    private void createNewTimer() {
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
     }
@@ -160,7 +168,7 @@ public abstract class  TimerController {
      */
     private void viewUpdateTimer() {
         // Corrects minutes and seconds when they are out of bounds
-        if (timerSeconds < 0){
+        if (timerSeconds < 0) {
             timerMinutes--;
             timerSeconds = SECONDS_IN_MINUTE - 1;
         }

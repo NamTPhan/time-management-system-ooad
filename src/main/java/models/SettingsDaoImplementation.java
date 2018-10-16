@@ -29,7 +29,7 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                 settingsList.add(new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak));
             }
         } catch (SQLException exception) {
-            System.out.println(exception);
+            throw new DAOException(exception);
         }
 
         return settingsList;
@@ -54,7 +54,7 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                 settings = new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak);
             }
         } catch (SQLException exception) {
-            System.out.println(exception);
+            throw new DAOException(exception);
         }
 
         return settings;

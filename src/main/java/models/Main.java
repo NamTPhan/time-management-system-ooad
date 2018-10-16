@@ -21,7 +21,7 @@ public class Main extends Application {
         }
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../views/session.fxml"));
+        loader.setLocation(getClass().getResource("/views/session.fxml"));
         loader.setController(controller);
 
         Parent root = loader.load();
