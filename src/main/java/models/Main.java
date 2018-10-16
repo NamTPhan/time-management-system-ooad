@@ -1,5 +1,6 @@
 package models;
 
+import controllers.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,12 +9,22 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    private static final int WINDOW_HEIGHT = 1280;
-    private static final int WINDOW_WIDTH = 800;
+    private static final int WINDOW_HEIGHT = 1280, WINDOW_WIDTH = 800;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/views/session.fxml"));
+    public void start(Stage primaryStage) throws Exception {
+        TimerController controller;
+        switch (0) {
+            case 1: controller = new HourTimerController(); break;
+            case 2: controller = new TenMinuteTimerController(); break;
+            default: controller = new PomodoroTimerController(); break;
+        }
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../views/session.fxml"));
+        loader.setController(controller);
+
+        Parent root = loader.load();
 
         primaryStage.setTitle("Timemanagement");
         primaryStage.setScene(new Scene(root, WINDOW_HEIGHT, WINDOW_WIDTH));
