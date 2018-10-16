@@ -33,11 +33,11 @@ public class SettingsController implements Initializable {
     @FXML
     private Button backToPomodoro, saveSettings;
 
-    private final int MAIN_SETTINGS_ID_CONFIG = 1;
+    private final int MAIN_SETTINGS_INDEX_CONFIG = 0;
     private final int DEFAULT_DROPDOWN_OPTION = 0;
+    private int settingsIdLoadedFromDb;
 
-    private Settings settings;
-    private int selectedRoundSize;
+    private Settings settings = new Settings();
     private GenericDAO<Settings> settingsDao = new SettingsDaoImplementation();
 
     private void setComboBoxData() {
@@ -50,7 +50,7 @@ public class SettingsController implements Initializable {
 
         soundChoice.setItems(soundOptions);
         soundChoice.getSelectionModel()
-                .select(settingsDao.getAll().size() != 0 ? settingsDao.getByIndex(MAIN_SETTINGS_ID_CONFIG).getSound()
+                .select(settingsDao.getAll().size() != 0 ? settingsDao.getAll().get(MAIN_SETTINGS_INDEX_CONFIG).getSound()
                         : DEFAULT_DROPDOWN_OPTION);
 
         // Set round size options
@@ -61,7 +61,7 @@ public class SettingsController implements Initializable {
                 );
 
         roundSizeChoice.setItems(roundOptions);
-        roundSizeChoice.getSelectionModel().select(settingsDao.getAll().size() != 0 ? settingsDao.getByIndex(MAIN_SETTINGS_ID_CONFIG).getRoundSize()
+        roundSizeChoice.getSelectionModel().select(settingsDao.getAll().size() != 0 ? settingsDao.getAll().get(MAIN_SETTINGS_INDEX_CONFIG).getRoundSize()
                 : DEFAULT_DROPDOWN_OPTION);
     }
 
@@ -73,34 +73,13 @@ public class SettingsController implements Initializable {
         saveSettings.setVisible(false);
         backToPomodoro.setVisible(true);
 
-        // Check which round size is selected, index 0 = 2 rounds, index 1 = 4 rounds
-        switch (roundSizeChoice.getSelectionModel().getSelectedIndex()) {
-            case 0:
-                selectedRoundSize = 2;
-                break;
-            case 1:
-                selectedRoundSize = 4;
-                break;
-            default:
-                break;
-        }
-
-//        // Dao getByIndex method test
-//        settingsDao.getByIndex(1);
-//        System.out.println(settingsDao.getByIndex(1).getLengthLongBreak());
-//
-//        // Dao update method test
-//        settings.setRoundSize(selectedRoundSize);
-//        settings.setSessionGoal(Math.round((int) dailyGoalSlider.getValue()));
-//        settings.setSound(soundChoice.getSelectionModel().getSelectedIndex());
-//        settings.setLengthShortBreak(Math.round((int) shortBreakSlider.getValue()));
-//        settings.setLengthLongBreak(Math.round((int) longBreakSlider.getValue()));
-//        settingsDao.save(settings);
-
-        // Test to get selected values
-//        System.out.println(soundChoice.getSelectionModel().getSelectedIndex());
-//        System.out.println(selectedRoundSize);
-//        System.out.println(Math.round((int) dailyGoalSlider.getValue()));
+        // Save changes
+        settings.setRoundSize(roundSizeChoice.getSelectionModel().getSelectedIndex());
+        settings.setSessionGoal(Math.round((int) dailyGoalSlider.getValue()));
+        settings.setSound(soundChoice.getSelectionModel().getSelectedIndex());
+        settings.setLengthShortBreak(Math.round((int) shortBreakSlider.getValue()));
+        settings.setLengthLongBreak(Math.round((int) longBreakSlider.getValue()));
+        settingsDao.update(settingsIdLoadedFromDb, settings);
 
         // Go back to home on click listener
         backToPomodoro.setOnAction(new EventHandler<ActionEvent>() {
@@ -122,11 +101,10 @@ public class SettingsController implements Initializable {
 
         // Check in the database if there is a configuration already saved else use the default settings
         if (settingsDao.getAll().size() == 0) {
-            settings = new Settings();
             setSettingsValuesOnLoad(settings);
             settingsDao.save(settings);
         } else {
-            setSettingsValuesOnLoad(settingsDao.getByIndex(MAIN_SETTINGS_ID_CONFIG));
+            setSettingsValuesOnLoad(settingsDao.getAll().get(MAIN_SETTINGS_INDEX_CONFIG));
         }
 
         // Set daily goal and update on screen when sliding
@@ -161,24 +139,16 @@ public class SettingsController implements Initializable {
 
             }
         });
-
-        // Check if input is a number, commented out currently not needed, maybe later
-//        longBreak.textProperty().addListener(new ChangeListener<String>() {
-//            @Override
-//            public void changed(ObservableValue<? extends String> observable, String oldValue,
-//                                String newValue) {
-//                if (!newValue.matches("\\d*")) {
-//                    longBreak.setText(newValue.replaceAll("[^\\d]", ""));
-//                }
-//            }
-//        });
     }
 
     private void setSettingsValuesOnLoad(Settings settings) {
+
+        settingsIdLoadedFromDb = settings.getSettingsId();
+
         // Elements
         dailyGoalSlider.setValue(settings.getSessionGoal());
         shortBreakSlider.setValue(settings.getLengthShortBreak());
-        longBreakSlider.setValue(settings.getLengthShortBreak());
+        longBreakSlider.setValue(settings.getLengthLongBreak());
 
         // Labels
         dailyGoalLabelSlider.setText(String.valueOf(settings.getSessionGoal()));

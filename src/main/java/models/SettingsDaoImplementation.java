@@ -91,7 +91,7 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                             ",sound = " + settings.getSound() +
                             ", lengthShortBreak = " + settings.getLengthShortBreak() +
                             ", lengthLongBreak = " + settings.getLengthLongBreak() +
-                            "WHERE settingsId = " + index + ";";
+                            " WHERE settingsId = " + index + ";";
 
             dbConnection.executeUpdateQuery(insertQuery);
 
