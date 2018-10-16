@@ -3,29 +3,65 @@ package controllers;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.util.Duration;
 import models.Session;
 
-public class SessionController {
+import java.awt.*;
 
+public abstract class  TimerController {
+    // Initialize JavaFX object references
     @FXML
-    private Button playButton, pauseButton, stopButton;
+    protected Button playButton, pauseButton, stopButton;
     @FXML
-    private Label timerLabel;
+    protected Label timerLabel;
 
-    private static final int SECONDS_IN_MINUTE = 60;
-    private static final Integer START_TIME = (25 * SECONDS_IN_MINUTE);
+    // Initialize essential timer variables
+    protected static final int SECONDS_IN_MINUTE = 60;
+    protected Session currentSession = new Session();
+    protected final int DURATION;
+    protected final Color COLOR;
 
-    private Session currentSession = new Session();
+    //private Session currentSession = new Session();
     private Timeline timeline;
-    private int timerMinutes = START_TIME  / SECONDS_IN_MINUTE;
-    private int timerSeconds = START_TIME  - (timerMinutes * SECONDS_IN_MINUTE);
+    private int timerMinutes, timerSeconds;
+
+    /**
+     * This constructor is accessible from subclasses so users can create
+     * subcontrollers that can use different timer durations
+     *
+     * Constructs a object of TimerController data type
+     * with duration and standard color red
+     * @param duration minutes in the timer
+     */
+    protected TimerController(int duration){
+        DURATION = duration * SECONDS_IN_MINUTE;
+        COLOR = Color.RED;
+        timerMinutes = DURATION  / SECONDS_IN_MINUTE;
+        timerSeconds = DURATION - (timerMinutes * SECONDS_IN_MINUTE);
+    }
+
+    /**
+     * This constructor is accessible from subclasses so users can create
+     * subcontrollers that can use different timer durations
+     *
+     * Constructs a object of TimerController data type
+     * with duration and a given color
+     * @param duration minutes in the timer
+     * @param color of the timer
+     */
+    protected TimerController(int duration, Color color){
+        DURATION = duration * SECONDS_IN_MINUTE;
+        COLOR = color;
+        timerMinutes = DURATION  / SECONDS_IN_MINUTE;
+        timerSeconds = DURATION - (timerMinutes * SECONDS_IN_MINUTE);
+    }
 
     public void initialize(){
-        playButton.setOnAction(event ->  { startSession(); });
-        pauseButton.setOnAction(event -> { pauseSession(); });
-        stopButton.setOnAction(event ->  { stopSession(); });
+        playButton.setOnAction(event ->  { startTimer(); });
+        pauseButton.setOnAction(event -> { pauseTimer(); });
+        stopButton.setOnAction(event ->  { stopTimer(); });
 
         viewUpdateTimer();
     }
@@ -33,14 +69,12 @@ public class SessionController {
     /**
      * Start a new session (or in future expansion to resume a old one)
      */
-    private void startSession(){
-
+    public void startTimer(){
         if (currentSession == null){
             currentSession = new Session();
             setTimerToDefault();
-        } else {
+        } else
             createNewTimer();
-        }
 
         toggleTimerButtons();     // Visually toggle between play and pause buttons
 
@@ -55,7 +89,7 @@ public class SessionController {
     /**
      * Temporarily stops the timer to resume later
      */
-    private void pauseSession(){
+    public void pauseTimer(){
         updateInvestedTime();
 
         timeline.stop();
@@ -66,7 +100,7 @@ public class SessionController {
     /**
      * Stops the timer and resets the values
      */
-    private void stopSession(){
+    public void stopTimer(){
         updateInvestedTime();
         System.out.println(currentSession.toString()); // This row is for testing #DELETE
         currentSession = null; // Remove the reference to the object
@@ -81,7 +115,7 @@ public class SessionController {
      */
     private void updateInvestedTime() {
         int timeRemaining = ((timerMinutes * 60) + timerSeconds);
-        int investedTime = START_TIME - timeRemaining;
+        int investedTime = DURATION - timeRemaining;
         currentSession.setInvestedTime(investedTime);
     }
 
@@ -107,8 +141,8 @@ public class SessionController {
         createNewTimer();
 
         // Converts the minutes and seconds
-        timerMinutes = START_TIME / SECONDS_IN_MINUTE;
-        timerSeconds = (START_TIME - (timerMinutes * SECONDS_IN_MINUTE));
+        timerMinutes = DURATION / SECONDS_IN_MINUTE;
+        timerSeconds = (DURATION - (timerMinutes * SECONDS_IN_MINUTE));
 
         viewUpdateTimer();
     }
@@ -137,5 +171,5 @@ public class SessionController {
         if (timerSeconds <= 0 && timerMinutes <= 0)
             timeline.stop(); // Stop timer if it is at zero
     }
-}
 
+}
