@@ -21,7 +21,7 @@ public class Settings {
         this.lengthLongBreak = lengthLongBreak;
     }
 
-    // Constructor used or insert to database without id, because of auto increment
+    // Constructor used for insert to database without id, because of auto increment
     public Settings(int roundSize, int sessionGoal, int sound, int lengthShortBreak, int lengthLongBreak) {
         this.roundSize = roundSize;
         this.sessionGoal = sessionGoal;

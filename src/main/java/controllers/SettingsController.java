@@ -99,9 +99,11 @@ public class SettingsController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setComboBoxData();
 
-        // Check in the database if there is a configuration already saved else use the default settings
+        // Check in the database if there is a configuration already saved, else use the default settings
         if (settingsDao.getAll().size() == 0) {
+            // Load settings with all the default values
             setSettingsValuesOnLoad(settings);
+            // Then save it in the database
             settingsDao.save(settings);
         } else {
             setSettingsValuesOnLoad(settingsDao.getAll().get(MAIN_SETTINGS_INDEX_CONFIG));
@@ -142,7 +144,7 @@ public class SettingsController implements Initializable {
     }
 
     private void setSettingsValuesOnLoad(Settings settings) {
-
+        // Get the unique id from the database that is used for the settings config
         settingsIdLoadedFromDb = settings.getSettingsId();
 
         // Elements
@@ -150,7 +152,7 @@ public class SettingsController implements Initializable {
         shortBreakSlider.setValue(settings.getLengthShortBreak());
         longBreakSlider.setValue(settings.getLengthLongBreak());
 
-        // Labels
+        // Labels value
         dailyGoalLabelSlider.setText(String.valueOf(settings.getSessionGoal()));
         shortBreakLabelSlider.setText(String.valueOf(settings.getLengthShortBreak()));
         longBreakLabelSlider.setText(String.valueOf(settings.getLengthLongBreak()));
