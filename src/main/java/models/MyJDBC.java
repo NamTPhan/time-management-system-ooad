@@ -26,7 +26,7 @@ public class MyJDBC {
     // set for verbose logging of all queries
     private boolean verbose = true;
 
-    // remembers the first error message on the connection 
+    // remembers the first error message on the connection
     private String errorMessage = null;
 
     // constructors
@@ -53,7 +53,7 @@ public class MyJDBC {
                 password = "";
             }
 
-            // establish a connection to a named database on a specified server	
+            // establish a connection to a named database on a specified server
             String connStr = DB_DRIVER_PREFIX + serverURL + "/" + dbName + DB_DRIVER_PARAMETERS;
             log("Connecting " + connStr);
             this.connection = DriverManager.getConnection(connStr, account, password);
@@ -164,32 +164,7 @@ public class MyJDBC {
             }
             // close both statement and resultset
             s.close();
-        } catch (SQLException ex) {
-            error(ex);
-        }
-
-        return result;
-    }
-
-    /**
-     * *
-     * Executes query that is expected to return a list of String values
-     *
-     * @param sql the full sql text of the query.
-     * @return the string result, null if no result or error
-     */
-    public String executeStringListQuery(String sql) {
-        String result = null;
-        try {
-            Statement s = this.connection.createStatement();
-            log(sql);
-            ResultSet rs = s.executeQuery(sql);
-            if (rs.next()) {
-                result = rs.getString(1);
-            }
-            // close both statement and resultset
-            s.close();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) { 
             error(ex);
         }
 
@@ -228,39 +203,6 @@ public class MyJDBC {
 
         // if an error occurred, close the connection to prevent further operations
         this.close();
-    }
-
-    /**
-     * *
-     * builds a sample database with sample content
-     *
-     * @param dbName name of the sample database.
-     */
-    public static void getDatabaseInfo(String dbName) {
-
-        System.out.println("Getting the " + dbName + " database...");
-
-        MyJDBC myJDBC = new MyJDBC(dbName);
-
-        System.out.println("Print all airports:");
-        try {
-            ResultSet rs = myJDBC.executeResultSetQuery(
-                    "SELECT id, name, location, state, country FROM airports");
-            while (rs.next()) {
-                // echo the info of the next airport found
-                System.out.println(
-                        rs.getString("id")
-                        + " " + rs.getString("name") + " " + rs.getString("location") + " " + rs.getString("state") + " " + rs.getString("country"));
-            }
-            // close and release the resources
-            rs.close();
-
-        } catch (SQLException ex) {
-            myJDBC.error(ex);
-        }
-
-        // close the connection with the database
-        myJDBC.close();
     }
 
     public boolean isVerbose() {
