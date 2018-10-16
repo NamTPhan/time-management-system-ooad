@@ -33,7 +33,10 @@ public class SettingsController implements Initializable {
     @FXML
     private Button backToPomodoro, saveSettings;
 
-    private Settings settings = new Settings();
+    private final int MAIN_SETTINGS_ID_CONFIG = 1;
+    private final int DEFAULT_DROPDOWN_OPTION = 0;
+
+    private Settings settings;
     private int selectedRoundSize;
     private GenericDAO<Settings> settingsDao = new SettingsDaoImplementation();
 
@@ -46,7 +49,9 @@ public class SettingsController implements Initializable {
                 );
 
         soundChoice.setItems(soundOptions);
-        soundChoice.getSelectionModel().select(0);
+        soundChoice.getSelectionModel()
+                .select(settingsDao.getAll().size() != 0 ? settingsDao.getByIndex(MAIN_SETTINGS_ID_CONFIG).getSound()
+                        : DEFAULT_DROPDOWN_OPTION);
 
         // Set round size options
         ObservableList<String> roundOptions =
@@ -56,7 +61,8 @@ public class SettingsController implements Initializable {
                 );
 
         roundSizeChoice.setItems(roundOptions);
-        roundSizeChoice.getSelectionModel().select(0);
+        roundSizeChoice.getSelectionModel().select(settingsDao.getAll().size() != 0 ? settingsDao.getByIndex(MAIN_SETTINGS_ID_CONFIG).getRoundSize()
+                : DEFAULT_DROPDOWN_OPTION);
     }
 
     @FXML
@@ -79,17 +85,17 @@ public class SettingsController implements Initializable {
                 break;
         }
 
-        // Dao getByIndex method test
-        settingsDao.getByIndex(1);
-        System.out.println(settingsDao.getByIndex(1).getLengthLongBreak());
-
-        // Dao save method test
-        settings.setRoundSize(selectedRoundSize);
-        settings.setSessionGoal(Math.round((int) dailyGoalSlider.getValue()));
-        settings.setSound(soundChoice.getSelectionModel().getSelectedIndex());
-        settings.setLengthShortBreak(Math.round((int) shortBreakSlider.getValue()));
-        settings.setLengthLongBreak(Math.round((int) longBreakSlider.getValue()));
-        settingsDao.save(settings);
+//        // Dao getByIndex method test
+//        settingsDao.getByIndex(1);
+//        System.out.println(settingsDao.getByIndex(1).getLengthLongBreak());
+//
+//        // Dao update method test
+//        settings.setRoundSize(selectedRoundSize);
+//        settings.setSessionGoal(Math.round((int) dailyGoalSlider.getValue()));
+//        settings.setSound(soundChoice.getSelectionModel().getSelectedIndex());
+//        settings.setLengthShortBreak(Math.round((int) shortBreakSlider.getValue()));
+//        settings.setLengthLongBreak(Math.round((int) longBreakSlider.getValue()));
+//        settingsDao.save(settings);
 
         // Test to get selected values
 //        System.out.println(soundChoice.getSelectionModel().getSelectedIndex());
@@ -113,6 +119,15 @@ public class SettingsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setComboBoxData();
+
+        // Check in the database if there is a configuration already saved else use the default settings
+        if (settingsDao.getAll().size() == 0) {
+            settings = new Settings();
+            setSettingsValuesOnLoad(settings);
+            settingsDao.save(settings);
+        } else {
+            setSettingsValuesOnLoad(settingsDao.getByIndex(MAIN_SETTINGS_ID_CONFIG));
+        }
 
         // Set daily goal and update on screen when sliding
         dailyGoalSlider.valueProperty().addListener(new ChangeListener() {
@@ -157,5 +172,17 @@ public class SettingsController implements Initializable {
 //                }
 //            }
 //        });
+    }
+
+    private void setSettingsValuesOnLoad(Settings settings) {
+        // Elements
+        dailyGoalSlider.setValue(settings.getSessionGoal());
+        shortBreakSlider.setValue(settings.getLengthShortBreak());
+        longBreakSlider.setValue(settings.getLengthShortBreak());
+
+        // Labels
+        dailyGoalLabelSlider.setText(String.valueOf(settings.getSessionGoal()));
+        shortBreakLabelSlider.setText(String.valueOf(settings.getLengthShortBreak()));
+        longBreakLabelSlider.setText(String.valueOf(settings.getLengthLongBreak()));
     }
 }
