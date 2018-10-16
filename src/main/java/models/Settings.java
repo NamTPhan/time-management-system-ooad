@@ -1,18 +1,12 @@
 package models;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Settings {
 
     private int settingsId, roundSize, sessionGoal, sound, lengthShortBreak, lengthLongBreak;
-    private Settings databaseSettings;
-
-    MyJDBC myJDBC = new MyJDBC("timemanagementooad");
 
     // Default settings values
     private static final int DEFAULT_SETTINGS_ID = 1,
-            DEFAULT_ROUND_SIZE = 4,
+            DEFAULT_ROUND_SIZE = 0,
             DEFAULT_SESSION_GOAL = 4,
             DEFAULT_SOUND = 0,
             DEFAULT_SHORT_BREAK = 5,
@@ -27,35 +21,19 @@ public class Settings {
         this.lengthLongBreak = lengthLongBreak;
     }
 
+    // Constructor used for insert to database without id, because of auto increment
+    public Settings(int roundSize, int sessionGoal, int sound, int lengthShortBreak, int lengthLongBreak) {
+        this.roundSize = roundSize;
+        this.sessionGoal = sessionGoal;
+        this.sound = sound;
+        this.lengthShortBreak = lengthShortBreak;
+        this.lengthLongBreak = lengthLongBreak;
+    }
+
+    // Default constructor
     public Settings() {
         this(DEFAULT_SETTINGS_ID, DEFAULT_ROUND_SIZE, DEFAULT_SESSION_GOAL, DEFAULT_SOUND, DEFAULT_SHORT_BREAK, DEFAULT_LONG_BREAK);
     }
-
-    public Settings getCurrentSettings() {
-
-        try {
-            String query = "SELECT * FROM settings WHERE settingsId = 1;";
-            ResultSet resultSet = myJDBC.executeResultSetQuery(query);
-            while (resultSet.next()) {
-                int settingsId = resultSet.getInt("settingsId");
-                int dailyRoundSize = resultSet.getInt("dailyRoundSize");
-                int dailySessionGoal = resultSet.getInt("dailySessionGoal");
-                int sound = resultSet.getInt("sound");
-                int lengthShortBreak = resultSet.getInt("lengthShortBreak");
-                int lengthLongBreak = resultSet.getInt("lengthLongBreak");
-
-                databaseSettings = new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak);
-            }
-        } catch (SQLException exception) {
-            System.out.println(exception);
-        }
-
-        return  databaseSettings;
-    }
-
-//    public Settings updateSettingsInDatabase() {
-//
-//    }
 
     // Getters
     public int getSettingsId() {
@@ -83,6 +61,11 @@ public class Settings {
     }
 
     // Setters
+
+    public void setSettingsId(int settingsId) {
+        this.settingsId = settingsId;
+    }
+
     public void setRoundSize(int roundSize) {
         this.roundSize = roundSize;
     }
@@ -102,4 +85,5 @@ public class Settings {
     public void setLengthLongBreak(int lengthLongBreak) {
         this.lengthLongBreak = lengthLongBreak;
     }
+
 }
