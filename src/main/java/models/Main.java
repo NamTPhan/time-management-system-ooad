@@ -10,10 +10,10 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static final int WINDOW_HEIGHT = 1280, WINDOW_WIDTH = 800;
+    private TimerController controller;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        TimerController controller;
         switch (0) {
             case 1: controller = new HourTimerController(); break;
             case 2: controller = new TenMinuteTimerController(); break;
