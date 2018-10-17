@@ -14,14 +14,14 @@ public class MyJDBC {
     private static final String DB_DEFAULT_DATABASE = "sys";
     private static final String DB_DEFAULT_SERVER_URL = "localhost:3306";
     private static final String DB_DEFAULT_ACCOUNT = "root";
-    private static final String DB_DEFAULT_PASSWORD = "admin"; //Change here your database password MySQl Workbench
+    private static final String DB_DEFAULT_PASSWORD = "root"; //Change here your database password MySQl Workbench
 
 
     private final static String DB_DRIVER_URL = "com.mysql.jdbc.Driver";
     private final static String DB_DRIVER_PREFIX = "jdbc:mysql://";
     private final static String DB_DRIVER_PARAMETERS = "?useSSL=false";
 
-    private Connection connection = null;
+    protected Connection connection = null;
 
     // set for verbose logging of all queries
     private boolean verbose = true;
