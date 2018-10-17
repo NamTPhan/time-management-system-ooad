@@ -2,10 +2,14 @@ package controllers;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import models.Session;
+import models.SetStage;
 
 public class SessionController {
 
@@ -136,6 +140,11 @@ public class SessionController {
 
         if (timerSeconds <= 0 && timerMinutes <= 0)
             timeline.stop(); // Stop timer if it is at zero
+    }
+
+    public void taskOverviewAction(ActionEvent event) throws Exception {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        new SetStage(stage, "/views/taskOverview.fxml");
     }
 }
 

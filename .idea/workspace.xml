@@ -1,44 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java" line="35" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba0c362d-0c4e-4336-8d1f-fb0fad4d48d6" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/storage_v2/_src_/schema/basketbal.hyRNng.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/storage_v2/_src_/schema/basketbal.hyRNng.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/storage_v2/_src_/schema/bestellingen.ajx6pw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/storage_v2/_src_/schema/bestellingen.ajx6pw.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/storage_v2/_src_/schema/sakila.oXLGyQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/storage_v2/_src_/schema/sakila.oXLGyQ.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/storage_v2/_src_/schema/sys.zb4BAA.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="4a436c98-9e8b-4a7d-81eb-630fe94eda60" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SessionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/SettingsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/models/MyJDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/MyJDBC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/session.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/session.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/views/session.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/session.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/views/taskOverview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/taskOverview.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/SessionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/SessionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controllers/SettingsController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/SettingsController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controllers/taskOverviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/taskOverviewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/MyJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/MyJDBC.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/session.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/session.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/views/session.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/session.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/views/taskOverview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/views/taskOverview.fxml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/views/taskOverview.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/views/taskOverview.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controllers/taskOverviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controllers/taskOverviewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/MyJDBC.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/MyJDBC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Task.class" afterDir="false" />
->>>>>>> taskoverview
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,89 +47,45 @@
     <session id="-1427380909">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-<<<<<<< HEAD
-          <entry key="java" value="14" />
-=======
-          <entry key="java" value="13" />
->>>>>>> taskoverview
-          <entry key="sql" value="1" />
-          <entry key="xml" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-<<<<<<< HEAD
-          <entry key="JAVA" value="14" />
-          <entry key="Scratch" value="1" />
-          <entry key="XML" value="2" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="223" />
-          <entry key="txt" value="20" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="223" />
-          <entry key="PLAIN_TEXT" value="20" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-    </session>
-    <session id="-1427380909">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.12" value="1" />
-          <entry key="project.open.time.14" value="2" />
-          <entry key="project.open.time.23" value="1" />
-          <entry key="project.opened" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="fxml" value="3" />
-          <entry key="java" value="51" />
-          <entry key="sql" value="3" />
+          <entry key="class" value="7" />
+          <entry key="fxml" value="14" />
+          <entry key="java" value="52" />
+          <entry key="png" value="1" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="50" />
-          <entry key="Scratch" value="4" />
-          <entry key="XML" value="4" />
-=======
-          <entry key="JAVA" value="13" />
-          <entry key="Scratch" value="1" />
-          <entry key="XML" value="2" />
->>>>>>> taskoverview
+          <entry key="CLASS" value="7" />
+          <entry key="Image" value="1" />
+          <entry key="JAVA" value="52" />
+          <entry key="XML" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="223" />
-          <entry key="txt" value="20" />
+          <entry key="dummy" value="2" />
+          <entry key="fxml" value="34" />
+          <entry key="java" value="5455" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="223" />
-          <entry key="PLAIN_TEXT" value="20" />
+          <entry key="JAVA" value="5454" />
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="SQL" value="1" />
+          <entry key="XML" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.20" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
     </session>
@@ -154,45 +95,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/models/Task.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+            <state relative-caret-position="153">
+              <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-=======
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Task.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#564#565#0" expanded="true" />
-                <element signature="e#595#596#0" expanded="true" />
-                <element signature="e#1134#1135#0" expanded="true" />
-                <element signature="e#1183#1184#0" expanded="true" />
->>>>>>> taskoverview
+                <element signature="e#401#402#0" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
+                <element signature="e#504#505#0" expanded="true" />
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#583#584#0" expanded="true" />
+                <element signature="e#623#624#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/models/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/ReadingActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="340">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-=======
->>>>>>> taskoverview
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/models/Activity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+              <folding>
+                <element signature="e#101#102#0" expanded="true" />
+                <element signature="e#133#134#0" expanded="true" />
+                <element signature="e#164#165#0" expanded="true" />
+                <element signature="e#196#197#0" expanded="true" />
+                <element signature="e#236#237#0" expanded="true" />
+                <element signature="e#268#269#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -200,10 +155,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/models/Settings.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/models/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/SessionController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/SettingsController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/views/addTaskPopup.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/models/MyJDBC.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Settings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/models/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/AddTaskPopupController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java" />
       </list>
     </option>
   </component>
@@ -212,24 +172,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="TimemanagementSystem" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="165" />
@@ -245,11 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-=======
->>>>>>> taskoverview
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -310,27 +248,16 @@
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
-=======
-      <pane id="Scope" />
       <pane id="PackagesPane" />
->>>>>>> taskoverview
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
-<<<<<<< HEAD
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538740287044" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Bryn\Documenten\Git\TimemanagementSystem\src\main\resources\views" />
-    </key>
-=======
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538740287044" />
->>>>>>> taskoverview
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539739088898" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -358,7 +285,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ba0c362d-0c4e-4336-8d1f-fb0fad4d48d6" name="Default Changelist" comment="" />
+      <changelist id="4a436c98-9e8b-4a7d-81eb-630fe94eda60" name="Default Changelist" comment="" />
       <created>1359379246138</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -370,60 +297,45 @@
       <workItem from="1538502271511" duration="7104000" />
       <workItem from="1538667932082" duration="1580000" />
       <workItem from="1538732512203" duration="6809000" />
-<<<<<<< HEAD
-      <workItem from="1538740718975" duration="40000" />
-=======
->>>>>>> taskoverview
+      <workItem from="1538740718975" duration="1242000" />
+      <workItem from="1539273167777" duration="11652000" />
+      <workItem from="1539333872721" duration="368000" />
+      <workItem from="1539338101974" duration="6724000" />
+      <workItem from="1539626554729" duration="3593000" />
+      <workItem from="1539693032480" duration="27065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="3299000" />
-=======
-    <option name="totallyTimeSpent" value="3259000" />
->>>>>>> taskoverview
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="50315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-<<<<<<< HEAD
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22751679" />
-=======
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.22416107" />
->>>>>>> taskoverview
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.2442953" />
       <window_info id="Structure" order="1" weight="0.24966443" />
-      <window_info id="Favorites" order="2" />
+      <window_info id="Favorites" order="2" weight="0.3295302" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32765958" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32765958" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32907802" />
       <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32907802" />
       <window_info anchor="bottom" id="Problems" order="9" />
       <window_info anchor="bottom" id="Changes" order="10" />
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" weight="0.32907802" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32907802" />
       <window_info anchor="bottom" id="Terminal" order="14" />
-      <window_info anchor="bottom" id="Database Changes" order="15" />
+      <window_info anchor="bottom" id="Database Changes" order="15" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -435,227 +347,361 @@
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
-<<<<<<< HEAD
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-=======
->>>>>>> taskoverview
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
-  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Activity.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/javafx-src.zip!/javafx/util/Callback.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-<<<<<<< HEAD
+        <state relative-caret-position="313">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/ReadingActivity.java">
-=======
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/session.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="67" column="59" lean-forward="true" selection-start-line="67" selection-start-column="59" selection-end-line="67" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/ReadingActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/taskOverview.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
+        <state relative-caret-position="60">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/images/placeholder.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/SetStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="50" lean-forward="true" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
           <folding>
-            <element signature="e#710#711#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/WritingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/views/addTaskPopup.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="15" lean-forward="true" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/SessionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2465">
+          <caret line="145" column="45" lean-forward="true" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controllers/SettingsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/WritingActivity.java">
->>>>>>> taskoverview
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-          <folding>
-<<<<<<< HEAD
-            <element signature="e#710#711#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-=======
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
->>>>>>> taskoverview
-          </folding>
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/SettingsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/WritingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="15" selection-end-column="15" />
-          <folding>
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/SetStage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/SetStage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-186" />
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
->>>>>>> taskoverview
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="-186" />
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ef67eb36-64c3-4259-a6c1-e93ab52c0f5f/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-=======
-        <state relative-caret-position="170">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="106" column="41" lean-forward="true" selection-start-line="106" selection-start-column="41" selection-end-line="106" selection-end-column="41" />
->>>>>>> taskoverview
+        <state relative-caret-position="222">
+          <caret line="116" selection-start-line="109" selection-end-line="116" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="170">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        <state relative-caret-position="204">
+          <caret line="43" column="23" lean-forward="true" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar!/com/mysql/jdbc/ConnectionPropertiesImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="1668" selection-start-line="1668" selection-end-line="1668" />
+          <folding>
+            <element signature="e#159343#159344#0" expanded="true" />
+            <element signature="e#159401#159402#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar!/com/mysql/jdbc/EscapeProcessor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar!/com/mysql/jdbc/MysqlIO.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="674" selection-start-line="674" selection-end-line="674" />
+          <folding>
+            <element signature="e#30777#30778#0" expanded="true" />
+            <element signature="e#30818#30819#0" expanded="true" />
+            <element signature="e#30864#30865#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar!/com/mysql/jdbc/ConnectionImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="1585" selection-start-line="1585" selection-end-line="1585" />
+          <folding>
+            <element signature="e#7726#7727#0" expanded="true" />
+            <element signature="e#7806#7807#0" expanded="true" />
+            <element signature="e#8006#8007#0" expanded="true" />
+            <element signature="e#8044#8045#0" expanded="true" />
+            <element signature="e#8170#8171#0" expanded="true" />
+            <element signature="e#8250#8251#0" expanded="true" />
+            <element signature="e#102200#102201#0" expanded="true" />
+            <element signature="e#102236#102237#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar!/com/mysql/jdbc/StatementImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="834" selection-start-line="834" selection-end-line="834" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/javafx-src.zip!/javafx/scene/control/Button.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="186" selection-start-line="186" selection-end-line="186" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/javafx-src.zip!/javafx/scene/Scene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="1762" selection-start-line="1762" selection-end-line="1762" />
+          <folding>
+            <element signature="e#66617#66618#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/javafx-src.zip!/javafx/event/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="197" selection-start-line="197" selection-end-line="197" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="1657" selection-start-line="1657" selection-end-line="1657" />
+          <folding>
+            <element signature="e#66921#66922#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_141/javafx-src.zip!/javafx/scene/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="8413" selection-start-line="8413" selection-end-line="8413" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar!/com/mysql/jdbc/ResultSetImpl.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="1416" selection-start-line="1416" selection-end-line="1416" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.42/mysql-connector-java-5.1.42.jar!/com/mysql/jdbc/PreparedStatement.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="1859" selection-start-line="1859" selection-end-line="1859" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/MyJDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8340#8341#0" expanded="true" />
+            <element signature="e#8370#8371#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/AddTaskPopupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-900">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/MainController.java" />
-=======
-        <state relative-caret-position="68">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/controllers/taskOverviewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="69" column="26" selection-start-line="69" selection-start-column="26" selection-end-line="69" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2032#2033#0" expanded="true" />
+            <element signature="e#2052#2053#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
->>>>>>> taskoverview
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/MyJDBC.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="60" selection-start-line="16" selection-start-column="60" selection-end-line="16" selection-end-column="60" />
+        <state relative-caret-position="102">
+          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#101#102#0" expanded="true" />
+            <element signature="e#133#134#0" expanded="true" />
+            <element signature="e#164#165#0" expanded="true" />
+            <element signature="e#196#197#0" expanded="true" />
+            <element signature="e#236#237#0" expanded="true" />
+            <element signature="e#268#269#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/models/Task.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="334">
-=======
-        <state relative-caret-position="69">
->>>>>>> taskoverview
-          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
+        <state relative-caret-position="153">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#595#596#0" expanded="true" />
-            <element signature="e#1134#1135#0" expanded="true" />
-            <element signature="e#1183#1184#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#504#505#0" expanded="true" />
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+            <element signature="e#623#624#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/main/java/models/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/models/ReadingActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="340">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-=======
->>>>>>> taskoverview
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>TimemanagementSystem</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>TimemanagementSystem</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: mysql:mysql-connector-java:5.1.42</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

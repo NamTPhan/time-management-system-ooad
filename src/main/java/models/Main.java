@@ -12,7 +12,7 @@ public class Main extends Application {
     private static final int WINDOW_WIDTH = 800;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/views/session.fxml"));
 
         primaryStage.setTitle("Timemanagement");
