@@ -1,5 +1,7 @@
-package controllers;
+package controllers.timers;
 
+import controllers.buttons.ButtonVisibilityBehavior;
+import controllers.timers.states.TimerState;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -13,19 +15,23 @@ import java.awt.*;
 public abstract class TimerController {
     // Initialize JavaFX object references
     @FXML
-    protected Button playButton, pauseButton, stopButton;
+    public static Button playButton, pauseButton, stopButton;
     @FXML
-    protected Label timerLabel;
+    private Label timerLabel;
 
     // Initialize essential timer variables
+    protected final int DURATION, BREAK_DURATION;
     protected static final int SECONDS_IN_MINUTE = 60;
     protected Session currentSession = new Session();
-    protected final int DURATION;
-    protected final Color COLOR;
 
-    //private Session currentSession = new Session();
+    protected Color timerColor = Color.getHSBColor(0, 68, 66),
+                    breakColor = Color.getHSBColor(206, 68, 66);
+
+    protected ButtonVisibilityBehavior buttonBehavior;
+
+    // private Session currentSession = new Session();
     private Timeline timeline;
-    private int timerMinutes, timerSeconds;
+    private int timerMinutes, timerSeconds, breakMinutes, breakSeconds;
 
     /**
      * This constructor is accessible from subclasses so users can create
@@ -34,30 +40,18 @@ public abstract class TimerController {
      * Constructs a object of TimerController data type
      * with duration and standard color red
      *
-     * @param duration minutes in the timer
+     * @param duration      minutes in the timer
+     * @param breakDuration minutes of a break after the timer finished
      */
-    protected TimerController(int duration) {
-        DURATION = duration * SECONDS_IN_MINUTE;
-        COLOR = Color.RED;
-        timerMinutes = DURATION / SECONDS_IN_MINUTE;
-        timerSeconds = DURATION - (timerMinutes * SECONDS_IN_MINUTE);
-    }
+    protected TimerController(int duration, int breakDuration) {
+        DURATION       = duration * SECONDS_IN_MINUTE;
+        BREAK_DURATION = breakDuration * SECONDS_IN_MINUTE;
 
-    /**
-     * This constructor is accessible from subclasses so users can create
-     * subcontrollers that can use different timer durations
-     * <p>
-     * Constructs a object of TimerController data type
-     * with duration and a given color
-     *
-     * @param duration minutes in the timer
-     * @param color    of the timer
-     */
-    protected TimerController(int duration, Color color) {
-        DURATION = duration * SECONDS_IN_MINUTE;
-        COLOR = color;
         timerMinutes = DURATION / SECONDS_IN_MINUTE;
         timerSeconds = DURATION - (timerMinutes * SECONDS_IN_MINUTE);
+
+        breakMinutes = BREAK_DURATION / SECONDS_IN_MINUTE;
+        breakSeconds = BREAK_DURATION - (breakDuration * SECONDS_IN_MINUTE);
     }
 
     public void initialize() {
@@ -81,10 +75,12 @@ public abstract class TimerController {
         if (currentSession == null) {
             currentSession = new Session();
             setTimerToDefault();
-        } else
-            createNewTimer();
+        } else {
+            timeline = new Timeline();
+            timeline.setCycleCount(Timeline.INDEFINITE);
+        }
 
-        toggleTimerButtons();     // Visually toggle between play and pause buttons
+        buttonBehavior.turnButtonsOn();     // Visually toggle between play and pause buttons
 
         timeline.getKeyFrames().add(
                 new KeyFrame(Duration.seconds(1), event -> {
@@ -92,6 +88,8 @@ public abstract class TimerController {
                     viewUpdateTimer();  // Visually update timer
                 }));
         timeline.playFromStart();
+
+        // TIMER OVER? ENTER BREAK STATE
     }
 
     /**
@@ -101,7 +99,7 @@ public abstract class TimerController {
         updateInvestedTime();
 
         timeline.stop();
-        toggleTimerButtons();
+        buttonBehavior.turnButtonsOff();
         System.out.println(currentSession.toString()); // This row is for testing #DELETE
     }
 
@@ -115,7 +113,16 @@ public abstract class TimerController {
 
         timeline.stop();
         setTimerToDefault();
-        toggleTimerButtons();
+        buttonBehavior.sessionEndsResetButtons();
+    }
+
+    /**
+     * Start a break. The time is dependent on the type of timer
+     * @param duration  of the break, in seconds
+     * @param color     color of the background
+     */
+    private void initiateBreak(int duration, Color color) {
+
     }
 
     /**
@@ -128,39 +135,17 @@ public abstract class TimerController {
     }
 
     /**
-     * Toggles between the visibility of the play and pause button.
-     */
-    private void toggleTimerButtons() {
-        if (playButton.isVisible()) { // Hide play button, show pause and stop button
-            playButton.setVisible(false);
-            pauseButton.setVisible(true);
-            stopButton.setVisible(true);
-        } else if (pauseButton.isVisible()) { // Hide pause and stop button, show play button
-            playButton.setVisible(true);
-            pauseButton.setVisible(false);
-            stopButton.setVisible(false);
-        }
-    }
-
-    /**
      * Resets the timer to it's original time.
      */
     private void setTimerToDefault() {
-        createNewTimer();
+        timeline = new Timeline();
+        timeline.setCycleCount(Timeline.INDEFINITE);
 
         // Converts the minutes and seconds
         timerMinutes = DURATION / SECONDS_IN_MINUTE;
         timerSeconds = (DURATION - (timerMinutes * SECONDS_IN_MINUTE));
 
         viewUpdateTimer();
-    }
-
-    /**
-     * Creates a new timer
-     */
-    private void createNewTimer() {
-        timeline = new Timeline();
-        timeline.setCycleCount(Timeline.INDEFINITE);
     }
 
     /**

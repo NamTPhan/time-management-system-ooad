@@ -1,6 +1,9 @@
 package models;
 
-import controllers.*;
+import controllers.timers.HourTimerController;
+import controllers.timers.PomodoroTimerController;
+import controllers.timers.TenMinuteTimerController;
+import controllers.timers.TimerController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,10 +17,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        switch (0) {
-            case 1: controller = new HourTimerController(); break;
-            case 2: controller = new TenMinuteTimerController(); break;
-            default: controller = new PomodoroTimerController(); break;
+        int timerId = 1;
+
+        switch (timerId) {
+            case 1: controller = new PomodoroTimerController(); break;
+            case 2: controller = new HourTimerController(); break;
+            case 3: controller = new TenMinuteTimerController(); break;
         }
 
         FXMLLoader loader = new FXMLLoader();
