@@ -13,36 +13,33 @@ public class Timer implements TimerState {
 
     // Mics variables
     private final TimerController timerController;
-    
+
     // State variables
     private TimerState timerState;
-    private final TimerState RUNNING_TIMER_STATE, 
-            PAUSE_TIMER_STATE, 
-            BREAK_TIMER_STATE, 
+    private final TimerState RUNNING_TIMER_STATE,
+            PAUSE_TIMER_STATE,
+            BREAK_TIMER_STATE,
             IDLE_TIMER_STATE;
     public boolean inBreakTime = false;
-    
+
     // Timer variables
     protected static final int SECONDS_IN_MINUTE = 60;
     protected final int DURATION, BREAK_DURATION;
     protected Timeline timeline;
-    protected int timerMinutes, 
-            timerSeconds, 
-            timerDuration, 
-            breakDuration, 
+    protected int timerMinutes,
+            timerSeconds,
+            timerDuration,
+            breakDuration,
             totalInvestedTime;
-    
+
     public Timer(int timerDuration, int breakDuration, TimerController controller) {
         // Set timer ready 
         timeline = new Timeline();
         timeline.setCycleCount(Timeline.INDEFINITE);
 
         // Initialize timer variables
-        //DURATION       = timerDuration * SECONDS_IN_MINUTE;
-        //BREAK_DURATION = breakDuration * SECONDS_IN_MINUTE;
-        DURATION = 4;
-        BREAK_DURATION = 3;
-        
+        DURATION = timerDuration * SECONDS_IN_MINUTE;
+        BREAK_DURATION = breakDuration * SECONDS_IN_MINUTE;
         timerMinutes = DURATION / SECONDS_IN_MINUTE;
         timerSeconds = DURATION - (timerMinutes * SECONDS_IN_MINUTE);
 
@@ -54,38 +51,41 @@ public class Timer implements TimerState {
 
         timerState = IDLE_TIMER_STATE;  // Set first state(default)
         timerController = controller;   // 
-        
+
         if (timerMinutes < 0 && timerSeconds < 0) { // Timer finished by first initialization?
             timerState = BREAK_TIMER_STATE;
             inBreakTime = true;
         }
     }
-    
+
     /**
      * Initialize FXML reference variables
+     *
      * @param timerLabel Label of the timer(minutes and seconds)
      */
-    public void setupFXMLReferences(Label timerLabel){
+    public void setupFXMLReferences(Label timerLabel) {
         // Initialize FXML variables
         this.timerLabel = timerLabel;
-        
+
         // Update the FXML elements(view) with the timer variables
         viewUpdateTimer();
     }
-    
+
     /**
      * Change the state of the timer
+     *
      * @param newTimerState state in which the timer will be
      */
-    protected void setTimerState(TimerState newTimerState){
+    protected void setTimerState(TimerState newTimerState) {
         timerState = newTimerState;
     }
 
     /**
      * Return the time that is invested in the timer
+     *
      * @return INT invested time
      */
-    public int getInvestedTime(){
+    public int getInvestedTime() {
         return timerDuration - ((timerMinutes * 60) + timerSeconds);
     }
 
@@ -109,7 +109,8 @@ public class Timer implements TimerState {
     /**
      * Bring the timer back to the start
      * Can be used for resetting to normal or break time
-     * @param isABreak 
+     *
+     * @param isABreak
      */
     protected void resetTimer(boolean isABreak) {
         // Create a new timer
@@ -125,13 +126,13 @@ public class Timer implements TimerState {
             timerMinutes = DURATION / SECONDS_IN_MINUTE;
             timerSeconds = (DURATION - (timerMinutes * SECONDS_IN_MINUTE));
         }
-        
+
         viewUpdateTimer();
     }
 
     /**
      * Function will be triggerd after the timer has run out of seconds.
-     * Starts a new timer as a break timer an prepares everything to start 
+     * Starts a new timer as a break timer an prepares everything to start
      * all over again as a normal timer
      */
     protected void enterBreak() {
@@ -143,16 +144,15 @@ public class Timer implements TimerState {
                     if (timerSeconds <= 1 && timerMinutes <= 0) { // Break is finished
                         resetTimer(false);                  // Reset as to a normal timer
                         timerController.finishBreakTime();  // Let the controller know the break is finished
-                        setTimerState(getIdleTimerState()); 
+                        setTimerState(getIdleTimerState());
                         inBreakTime = false;
-                    }
-                    else {
+                    } else {
                         timerSeconds--;           // Decrease the seconds of the timer every second
                         viewUpdateTimer();
                     }
                 }));
         timeline.playFromStart();
-        
+
         timerController.enterBreakTime();   // Let the controller know the timer is finished
         timerState.startBreakTime();
     }
@@ -176,9 +176,20 @@ public class Timer implements TimerState {
     public void startBreakTime() {
         timerState.startBreakTime();
     }
-    
-    public TimerState getRunningTimerState() { return RUNNING_TIMER_STATE;}
-    public TimerState getPauseTimerState() { return PAUSE_TIMER_STATE;}
-    public TimerState getBreakTimerState() { return BREAK_TIMER_STATE;}
-    public TimerState getIdleTimerState() { return IDLE_TIMER_STATE;}
+
+    public TimerState getRunningTimerState() {
+        return RUNNING_TIMER_STATE;
+    }
+
+    public TimerState getPauseTimerState() {
+        return PAUSE_TIMER_STATE;
+    }
+
+    public TimerState getBreakTimerState() {
+        return BREAK_TIMER_STATE;
+    }
+
+    public TimerState getIdleTimerState() {
+        return IDLE_TIMER_STATE;
+    }
 }

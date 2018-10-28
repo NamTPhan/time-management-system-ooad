@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 public class NoButtonsVisible implements ButtonBehavior {
     @FXML
     private Button playButton, pauseButton;
-    
+
     @Override
     public void play() {
         playButton.setVisible(false);
@@ -24,7 +24,7 @@ public class NoButtonsVisible implements ButtonBehavior {
         playButton.setVisible(true);
         pauseButton.setVisible(false);
     }
-    
+
     @Override
     public void playInBreak() {
         playButton.setVisible(false);

@@ -41,7 +41,7 @@ public class AllButtonsVisible implements ButtonBehavior {
         pauseButton.setVisible(false);
         stopButton.setVisible(false);
     }
-    
+
     @Override
     public void setupFXMLReferences(Button playButton, Button pauseButton, Button stopButton) {
         this.playButton = playButton;

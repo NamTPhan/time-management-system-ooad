@@ -9,7 +9,7 @@ public class PauseTimerState implements TimerState {
 
     @Override
     public void start() {
-        if (timer.timerSeconds <= 0 && timer.timerMinutes <= 0&& !timer.inBreakTime) { // Timer is done
+        if (timer.timerSeconds <= 0 && timer.timerMinutes <= 0 && !timer.inBreakTime) { // Timer is done
             timer.enterBreak();
         } else {
             if (timer.inBreakTime) timer.setTimerState(timer.getBreakTimerState());

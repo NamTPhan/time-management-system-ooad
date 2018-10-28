@@ -21,7 +21,7 @@ public abstract class TimerController {
     protected Button playButton, pauseButton, stopButton, settingsButton;
     @FXML
     protected Label timerLabel;
-    
+
     private Session currentSession;
     private Color backgroundColorWhenRunning, backgroundColorWhenInBreak;
     private ButtonBehavior buttonBehavior;
@@ -58,7 +58,7 @@ public abstract class TimerController {
         this.backgroundColorWhenRunning = Color.LIGHT_GRAY;
         this.backgroundColorWhenInBreak = Color.BLUE;
     }
-    
+
     /**
      * Set up the FXML object references
      */
@@ -72,31 +72,31 @@ public abstract class TimerController {
         stopButton.setOnAction(event -> {
             stopTimer();
         });
-        
+
         timer.setupFXMLReferences(timerLabel);
         buttonBehavior.setupFXMLReferences(playButton, pauseButton, stopButton);
     }
 
     /**
-     * Start/resume a session 
+     * Start/resume a session
      */
     public void startTimer() {
         currentSession = (currentSession == null) ? new Session() : currentSession;
-        
+
         // Change button behavior based on timer state
         if (timer.inBreakTime) buttonBehavior.playInBreak();
         else buttonBehavior.play();
-        
+
         timer.start();
     }
 
     /**
-     * Pauses the timer and save the time that is 
+     * Pauses the timer and save the time that is
      * already invested
      */
     public void pauseTimer() {
         timer.pause();
-        
+
         if (timer.inBreakTime) {
             buttonBehavior.pauseInBreak();
         } else {
@@ -110,20 +110,20 @@ public abstract class TimerController {
      */
     public void stopTimer() {
         timer.stop();
-        
+
         buttonBehavior.resetButtons();
         updateInvestedTime();
-        
+
         currentSession = new Session(); // Remove the reference to the object
     }
-    
+
     /**
      * Take action based on the fact that the timer is in a break
      */
     public void enterBreakTime() {
         buttonBehavior.playInBreak();
     }
-    
+
     /**
      * Take action based on the fact that the timer has finished the break time
      */
@@ -133,10 +133,11 @@ public abstract class TimerController {
 
     /**
      * Set the colors of the timer(view)
+     *
      * @param bgWhileRunning Color of the background when the timer is running
      * @param bgInBreakTime  Color of the background when the timer is in a break state
      */
-    public void setColors(Color bgWhileRunning, Color bgInBreakTime){
+    public void setColors(Color bgWhileRunning, Color bgInBreakTime) {
         this.backgroundColorWhenRunning = bgWhileRunning;
         this.backgroundColorWhenInBreak = bgInBreakTime;
     }
