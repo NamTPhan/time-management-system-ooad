@@ -1,27 +1,45 @@
 package controllers.buttons;
 
-import controllers.timers.TimerController;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class NoButtonsVisible implements ButtonVisibilityBehavior {
-    private Button playButton = TimerController.playButton,
-            pauseButton = TimerController.pauseButton;
-
+public class NoButtonsVisible implements ButtonBehavior {
+    @FXML
+    private Button playButton, pauseButton;
+    
     @Override
-    public void turnButtonsOn() {
-        if (playButton.isVisible())
-            playButton.setVisible(false);
+    public void play() {
+        playButton.setVisible(false);
+        pauseButton.setVisible(false);
     }
 
     @Override
-    public void turnButtonsOff() {
+    public void pause() {
         // There are no buttons to click so this function will be run
         // after the session ends
     }
 
     @Override
-    public void sessionEndsResetButtons() {
-        pauseButton.setVisible(false);
+    public void resetButtons() {
         playButton.setVisible(true);
+        pauseButton.setVisible(false);
+    }
+    
+    @Override
+    public void playInBreak() {
+        playButton.setVisible(false);
+        pauseButton.setVisible(true);
+    }
+
+    @Override
+    public void pauseInBreak() {
+        playButton.setVisible(true);
+        pauseButton.setVisible(false);
+    }
+
+    @Override
+    public void setupFXMLReferences(Button playButton, Button pauseButton, Button stopButton) {
+        this.playButton = playButton;
+        this.pauseButton = pauseButton;
     }
 }

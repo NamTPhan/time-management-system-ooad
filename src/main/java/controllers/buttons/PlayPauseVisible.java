@@ -1,32 +1,43 @@
 package controllers.buttons;
 
-import controllers.buttons.ButtonVisibilityBehavior;
-import controllers.timers.TimerController;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class PlayPauseVisible implements ButtonVisibilityBehavior {
-    private Button playButton = TimerController.playButton,
-            pauseButton = TimerController.pauseButton;
-
+public class PlayPauseVisible implements ButtonBehavior {
+    @FXML
+    private Button playButton, pauseButton;
+    
     @Override
-    public void turnButtonsOn() {
-        if (playButton.isVisible()) {
-            playButton.setVisible(false);
-            pauseButton.setVisible(true);
-        }
+    public void play() {
+        playButton.setVisible(false);
+        pauseButton.setVisible(true);
     }
 
     @Override
-    public void turnButtonsOff() {
-        if (pauseButton.isVisible()) {
-            playButton.setVisible(true);
-            pauseButton.setVisible(false);
-        }
-    }
-
-    @Override
-    public void sessionEndsResetButtons() {
-        pauseButton.setVisible(false);
+    public void pause() {
         playButton.setVisible(true);
+        pauseButton.setVisible(false);
+    }
+
+    @Override
+    public void playInBreak() {
+        play();
+    }
+
+    @Override
+    public void pauseInBreak() {
+        pause();
+    }
+
+    @Override
+    public void resetButtons() {
+        playButton.setVisible(true);
+        pauseButton.setVisible(false);
+    }
+
+    @Override
+    public void setupFXMLReferences(Button playButton, Button pauseButton, Button stopButton) {
+        this.playButton = playButton;
+        this.pauseButton = pauseButton;
     }
 }

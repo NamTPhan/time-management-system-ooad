@@ -3,31 +3,27 @@ package controllers.timers.states;
 import javafx.animation.KeyFrame;
 import javafx.util.Duration;
 
-import javax.xml.bind.SchemaOutputResolver;
-
-public class IdleTimer implements TimerState {
+public class IdleTimerState implements TimerState {
     Timer timer;
 
-    public IdleTimer(Timer newTimer) {
+    public IdleTimerState(Timer newTimer) {
         timer = newTimer;
     }
 
     @Override
     public void start() {
-        // Started the timer.
         timer.timeline.getKeyFrames().add(
                 new KeyFrame(Duration.seconds(1), event -> {
-                    if (timer.timerSeconds <= 0) { // Timer is done
+                    if (timer.timerSeconds <= 1 && timer.timerMinutes <= 0) { // Timer is done
                         timer.enterBreak();
-                    }
-                    else {
+                    } else {
                         timer.timerSeconds--;         // Decrease the seconds of the timer every second
                         timer.viewUpdateTimer();      // Visually update timer
                     }
                 }));
         timer.timeline.playFromStart();
 
-        timer.setTimerState(timer.getStartTimerState());
+        timer.setTimerState(timer.getRunningTimerState());
     }
 
     @Override

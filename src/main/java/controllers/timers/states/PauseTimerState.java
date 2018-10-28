@@ -1,20 +1,21 @@
 package controllers.timers.states;
 
-public class PauseTimer implements TimerState {
+public class PauseTimerState implements TimerState {
     Timer timer;
 
-    public PauseTimer(Timer newTimer) {
+    public PauseTimerState(Timer newTimer) {
         timer = newTimer;
     }
 
     @Override
     public void start() {
-        // Resume timer
-        if (timer.timerSeconds <= 0 && timer.timerMinutes <= 0) {
+        if (timer.timerSeconds <= 0 && timer.timerMinutes <= 0&& !timer.inBreakTime) { // Timer is done
             timer.enterBreak();
         } else {
+            if (timer.inBreakTime) timer.setTimerState(timer.getBreakTimerState());
+            else timer.setTimerState(timer.getRunningTimerState());
+
             timer.timeline.playFromStart();   // Resume timer
-            timer.setTimerState(timer.getStartTimerState());
         }
     }
 
@@ -30,6 +31,6 @@ public class PauseTimer implements TimerState {
 
     @Override
     public void startBreakTime() {
-        // You can not manually enter in here only when the timer is finished
+        // You can not manually enter this method, this is only possible when the timer has finished
     }
 }
