@@ -24,7 +24,6 @@ public class Main extends Application {
         }
         
         settings = settingsDao.getByIndex(DEFAULT_SETTINGS_ID);
-        System.out.println(settings.getSettingsId() + " " + settings.getLengthLongBreak() + " " + settings.getLengthShortBreak());
 
         switch (settings.getTimerType()) {
             case 1: controller = new HourTimerController(); break;
