@@ -23,6 +23,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @author Nam Phan 500769669
+ */
 public class SettingsController implements Initializable {
 
     @FXML
@@ -41,6 +44,9 @@ public class SettingsController implements Initializable {
     private Settings settings = new Settings();
     private GenericDAO<Settings> settingsDao = new SettingsDaoImplementation();
 
+    /**
+     * Method for loading combobox data on load screen
+     */
     private void setComboBoxData() {
         // Set sound options
         ObservableList<String> soundOptions =
@@ -77,8 +83,11 @@ public class SettingsController implements Initializable {
                 : DEFAULT_DROPDOWN_OPTION);
     }
 
+    /**
+     * Handles button and message visibility and saves changes to database
+     */
     @FXML
-    private void saveSettings(javafx.event.ActionEvent event) throws Exception {
+    private void saveSettings(javafx.event.ActionEvent event) {
 
         // Save settings and show button to go back to home
         successMessage.setVisible(true);
@@ -95,11 +104,16 @@ public class SettingsController implements Initializable {
         settingsDao.update(settingsIdLoadedFromDb, settings);
     }
 
+    /**
+     * Handles the close button of the settings screen and selects the right controller
+     * based on database value
+     */
     @FXML
     private void closeSettings() throws IOException {
         TimerController controller;
         settings = settingsDao.getByIndex(MAIN_SETTINGS_INDEX_CONFIG);
 
+        // Selects the controller that was just saved
         switch (settings.getTimerType()) {
             case 1:
                 controller = new HourTimerController();
@@ -112,9 +126,10 @@ public class SettingsController implements Initializable {
                 break;
         }
 
+        // Loads Pomodoro window again and close current window
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/session.fxml"));
         loader.setController(controller);
-        Parent root1 = (Parent) loader.load();
+        Parent root1 = loader.load();
         Stage stage = new Stage();
         stage.initStyle(StageStyle.DECORATED);
         stage.setTitle("Pomodoro");
@@ -125,6 +140,9 @@ public class SettingsController implements Initializable {
         stageCurrent.close();
     }
 
+    /**
+     * Initialize settings data on load screen and updates the sliders values real time
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setComboBoxData();
@@ -173,6 +191,11 @@ public class SettingsController implements Initializable {
         });
     }
 
+    /**
+     * Displays all the database data in the sliders and comboboxes
+     *
+     * @param settings object that contains all data for displaying
+     */
     private void setSettingsValuesOnLoad(Settings settings) {
         // Get the unique id from the database that is used for the settings config
         settingsIdLoadedFromDb = settings.getSettingsId();

@@ -5,11 +5,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Nam Phan - 500769669
+ */
 public class SettingsDaoImplementation implements GenericDAO<Settings> {
 
     private List<Settings> settingsList = new ArrayList<>();
     private Settings settings;
 
+    /**
+     * @return settingsList A list that contains all the settings records in objects
+     * @throws DAOException Exception thrown in case of sql problems
+     */
     @Override
     public List<Settings> getAll() throws DAOException {
 
@@ -36,6 +43,11 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
         return settingsList;
     }
 
+    /**
+     * @param index The index of the settings configuration in the database
+     * @return settings A settings object with all the values from the database
+     * @throws DAOException Exception thrown in case of sql problems
+     */
     @Override
     public Settings getByIndex(int index) throws DAOException {
 
@@ -62,6 +74,11 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
         return settings;
     }
 
+    /**
+     * @param settings The settings object that has been saved for the first time
+     * @return a boolean value. True is save successful, else an error will be printed
+     * @throws DAOException Exception thrown in case of sql problems
+     */
     @Override
     public boolean save(Settings settings) throws DAOException {
 
@@ -83,6 +100,12 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
         }
     }
 
+    /**
+     * @param index    The index of the settings configuration in the database
+     * @param settings The settings object that has been updated with new values
+     * @return a boolean value. True is save successful, else an error will be printed
+     * @throws DAOException Exception thrown in case of sql problems
+     */
     @Override
     public boolean update(int index, Settings settings) throws DAOException {
 

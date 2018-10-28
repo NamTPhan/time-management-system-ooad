@@ -2,6 +2,9 @@ package models;
 
 import java.sql.*;
 
+/**
+ * @author Nam Phan - 500769669
+ */
 public class DatabaseConnection {
 
     private static DatabaseConnection instance;
@@ -29,7 +32,9 @@ public class DatabaseConnection {
         return connection;
     }
 
-    // Get database instance
+    /**
+     * Checks if an instance is created, in case not create a new connection
+     */
     public static DatabaseConnection getInstance() throws SQLException {
         if (instance == null) {
             instance = new DatabaseConnection();
@@ -40,7 +45,9 @@ public class DatabaseConnection {
         return instance;
     }
 
-    // Close/disconnect connection
+    /**
+     * Method used for disconnecting the connection
+     */
     public void disconnect() {
         if (connection != null) {
             try {
@@ -52,18 +59,16 @@ public class DatabaseConnection {
         }
     }
 
-    /*
-     *
+    /**
      * echoes a message on the system console
      *
-     * @param message
+     * @param message the given message that should be printed
      */
     public void log(String message) {
         System.out.println("MyJDBC: " + message);
     }
 
-    /*
-     *
+    /**
      * echoes an exception and its stack trace on the system console. remembers
      * the message of the first error that occurs for later reference. closes
      * the connection such that no further operations are possible.
@@ -84,8 +89,7 @@ public class DatabaseConnection {
         this.disconnect();
     }
 
-    /*
-     *
+    /**
      * Executes a DDL, DML or DCL query that does not yield a result set
      *
      * @param sql the full sql text of the query.
@@ -105,8 +109,7 @@ public class DatabaseConnection {
         }
     }
 
-    /*
-     *
+    /**
      * Executes an SQL query that yields a ResultSet with the outcome of the
      * query. This outcome may be a single row with a single column in case of a
      * scalar outcome.
@@ -122,8 +125,7 @@ public class DatabaseConnection {
         return rs;
     }
 
-    /*
-     *
+    /**
      * Executes query that is expected to return a single String value
      *
      * @param sql the full sql text of the query.

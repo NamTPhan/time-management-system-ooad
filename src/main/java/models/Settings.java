@@ -1,5 +1,8 @@
 package models;
 
+/**
+ * @author Nam Phan - 500769669
+ */
 public class Settings {
 
     private int settingsId, roundSize, sessionGoal, sound, lengthShortBreak, lengthLongBreak, timerType;
@@ -24,7 +27,9 @@ public class Settings {
         this.timerType = timerType;
     }
 
-    // Constructor used for insert to database without id, because of auto increment
+    /**
+     * Constructor used for insert to database without id, because of auto increment
+     */
     public Settings(int roundSize, int sessionGoal, int sound, int lengthShortBreak,
                     int lengthLongBreak, int timerType) {
         this.roundSize = roundSize;
@@ -35,7 +40,9 @@ public class Settings {
         this.timerType = timerType;
     }
 
-    // Default constructor
+    /**
+     * Default constructor with all default values
+     */
     public Settings() {
         this(DEFAULT_SETTINGS_ID, DEFAULT_ROUND_SIZE, DEFAULT_SESSION_GOAL, DEFAULT_SOUND, DEFAULT_SHORT_BREAK,
                 DEFAULT_LONG_BREAK, DEFAULT_TIMER_TYPE);
