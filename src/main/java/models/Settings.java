@@ -2,7 +2,7 @@ package models;
 
 public class Settings {
 
-    private int settingsId, roundSize, sessionGoal, sound, lengthShortBreak, lengthLongBreak;
+    private int settingsId, roundSize, sessionGoal, sound, lengthShortBreak, lengthLongBreak, timerType;
 
     // Default settings values
     private static final int DEFAULT_SETTINGS_ID = 1,
@@ -10,29 +10,35 @@ public class Settings {
             DEFAULT_SESSION_GOAL = 4,
             DEFAULT_SOUND = 0,
             DEFAULT_SHORT_BREAK = 5,
-            DEFAULT_LONG_BREAK = 15;
+            DEFAULT_LONG_BREAK = 15,
+            DEFAULT_TIMER_TYPE = 0;
 
-    public Settings(int settingsId, int roundSize, int sessionGoal, int sound, int lengthShortBreak, int lengthLongBreak) {
+    public Settings(int settingsId, int roundSize, int sessionGoal, int sound, int lengthShortBreak,
+                    int lengthLongBreak, int timerType) {
         this.settingsId = settingsId;
         this.roundSize = roundSize;
         this.sessionGoal = sessionGoal;
         this.sound = sound;
         this.lengthShortBreak = lengthShortBreak;
         this.lengthLongBreak = lengthLongBreak;
+        this.timerType = timerType;
     }
 
     // Constructor used for insert to database without id, because of auto increment
-    public Settings(int roundSize, int sessionGoal, int sound, int lengthShortBreak, int lengthLongBreak) {
+    public Settings(int roundSize, int sessionGoal, int sound, int lengthShortBreak,
+                    int lengthLongBreak, int timerType) {
         this.roundSize = roundSize;
         this.sessionGoal = sessionGoal;
         this.sound = sound;
         this.lengthShortBreak = lengthShortBreak;
         this.lengthLongBreak = lengthLongBreak;
+        this.timerType = timerType;
     }
 
     // Default constructor
     public Settings() {
-        this(DEFAULT_SETTINGS_ID, DEFAULT_ROUND_SIZE, DEFAULT_SESSION_GOAL, DEFAULT_SOUND, DEFAULT_SHORT_BREAK, DEFAULT_LONG_BREAK);
+        this(DEFAULT_SETTINGS_ID, DEFAULT_ROUND_SIZE, DEFAULT_SESSION_GOAL, DEFAULT_SOUND, DEFAULT_SHORT_BREAK,
+                DEFAULT_LONG_BREAK, DEFAULT_TIMER_TYPE);
     }
 
     // Getters
@@ -60,8 +66,11 @@ public class Settings {
         return lengthLongBreak;
     }
 
-    // Setters
+    public int getTimerType() {
+        return timerType;
+    }
 
+    // Setters
     public void setSettingsId(int settingsId) {
         this.settingsId = settingsId;
     }
@@ -86,4 +95,7 @@ public class Settings {
         this.lengthLongBreak = lengthLongBreak;
     }
 
+    public void setTimerType(int timerType) {
+        this.timerType = timerType;
+    }
 }

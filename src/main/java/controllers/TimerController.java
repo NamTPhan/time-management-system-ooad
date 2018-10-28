@@ -2,9 +2,15 @@ package controllers;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import models.Session;
 
@@ -13,7 +19,7 @@ import java.awt.*;
 public abstract class TimerController {
     // Initialize JavaFX object references
     @FXML
-    protected Button playButton, pauseButton, stopButton;
+    protected Button playButton, pauseButton, stopButton, settingsButton;
     @FXML
     protected Label timerLabel;
 
@@ -71,6 +77,7 @@ public abstract class TimerController {
             stopTimer();
         });
 
+        openSettings();
         viewUpdateTimer();
     }
 
@@ -116,6 +123,26 @@ public abstract class TimerController {
         timeline.stop();
         setTimerToDefault();
         toggleTimerButtons();
+    }
+
+    /**
+     * Opens the settings window
+     */
+    public void openSettings() {
+        try {
+            Stage stageCurrent = (Stage) settingsButton.getScene().getWindow();
+            stageCurrent.close();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/settings.fxml"));
+            Parent root1 = (Parent) loader.load();
+            Stage stage = new Stage();
+            stage.initStyle(StageStyle.DECORATED);
+            stage.setTitle("Settings");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (Exception e) {
+            System.out.println("Cant load new window");
+        }
     }
 
     /**

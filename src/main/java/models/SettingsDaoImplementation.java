@@ -25,8 +25,9 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                 int sound = resultSet.getInt("sound");
                 int lengthShortBreak = resultSet.getInt("lengthShortBreak");
                 int lengthLongBreak = resultSet.getInt("lengthLongBreak");
+                int timerType = resultSet.getInt("timerType");
 
-                settingsList.add(new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak));
+                settingsList.add(new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak, timerType));
             }
         } catch (SQLException exception) {
             throw new DAOException(exception);
@@ -50,8 +51,9 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                 int sound = resultSet.getInt("sound");
                 int lengthShortBreak = resultSet.getInt("lengthShortBreak");
                 int lengthLongBreak = resultSet.getInt("lengthLongBreak");
+                int timerType = resultSet.getInt("timerType");
 
-                settings = new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak);
+                settings = new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak, timerType);
             }
         } catch (SQLException exception) {
             throw new DAOException(exception);
@@ -66,9 +68,11 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
         try {
             DatabaseConnection dbConnection = DatabaseConnection.getInstance();
             String insertQuery =
-                    "INSERT INTO settings (settingsId, dailyRoundSize, dailySessionGoal,sound, lengthShortBreak, lengthLongBreak)" +
+                    "INSERT INTO settings (settingsId, dailyRoundSize, dailySessionGoal,sound, lengthShortBreak, lengthLongBreak, timerType)" +
                             "VALUES (" + null + ", " + settings.getRoundSize() + ", "
-                            + settings.getSessionGoal() + ", " + settings.getSound() + ", " + settings.getLengthShortBreak() + ", " + settings.getLengthLongBreak() + ");";
+                            + settings.getSessionGoal() + ", " + settings.getSound() + ", "
+                            + settings.getLengthShortBreak() + ", " + settings.getLengthLongBreak() + ", "
+                            + settings.getTimerType() + ");";
 
             dbConnection.executeUpdateQuery(insertQuery);
 
@@ -91,6 +95,7 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                             ",sound = " + settings.getSound() +
                             ", lengthShortBreak = " + settings.getLengthShortBreak() +
                             ", lengthLongBreak = " + settings.getLengthLongBreak() +
+                            ", timerType = " + settings.getTimerType() +
                             " WHERE settingsId = " + index + ";";
 
             dbConnection.executeUpdateQuery(insertQuery);
