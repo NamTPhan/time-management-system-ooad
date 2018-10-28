@@ -1,6 +1,9 @@
 package models;
 
-import controllers.*;
+import controllers.timers.HourTimerController;
+import controllers.timers.PomodoroTimerController;
+import controllers.timers.TenMinuteTimerController;
+import controllers.timers.TimerController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,18 +20,23 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        if (settingsDao.getAll().size() == 0){
+        if (settingsDao.getAll().size() == 0) {
             settings = new Settings();
             settingsDao.save(settings);
         }
-        
+
         settings = settingsDao.getByIndex(DEFAULT_SETTINGS_ID);
 
         switch (settings.getTimerType()) {
-            case 1: controller = new HourTimerController(); break;
-            case 2: controller = new TenMinuteTimerController(); break;
-            default: controller = new PomodoroTimerController(); break;
+            case 1:
+                controller = new HourTimerController();
+                break;
+            case 2:
+                controller = new TenMinuteTimerController();
+                break;
+            default:
+                controller = new PomodoroTimerController();
+                break;
         }
 
         FXMLLoader loader = new FXMLLoader();

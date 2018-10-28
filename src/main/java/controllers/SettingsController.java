@@ -1,5 +1,9 @@
 package controllers;
 
+import controllers.timers.HourTimerController;
+import controllers.timers.PomodoroTimerController;
+import controllers.timers.TenMinuteTimerController;
+import controllers.timers.TimerController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -43,6 +47,7 @@ public class SettingsController implements Initializable {
 
     private Settings settings = new Settings();
     private GenericDAO<Settings> settingsDao = new SettingsDaoImplementation();
+    private TimerController controller;
 
     /**
      * Method for loading combobox data on load screen
@@ -110,7 +115,6 @@ public class SettingsController implements Initializable {
      */
     @FXML
     private void closeSettings() throws IOException {
-        TimerController controller;
         settings = settingsDao.getByIndex(MAIN_SETTINGS_INDEX_CONFIG);
 
         // Selects the controller that was just saved
