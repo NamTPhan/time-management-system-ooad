@@ -9,6 +9,6 @@ public class PomodoroTimerController extends TimerController {
 
     public PomodoroTimerController() {
         super(25, 5, new PlayPauseVisible());
-        setColors(Color.getHSBColor(0, 68, 66), Color.getHSBColor(206, 68, 66));
+        setColors(new Color(230, 73, 73), new Color(73, 162, 230));
     }
 }

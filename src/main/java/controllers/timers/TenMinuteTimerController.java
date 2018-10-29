@@ -10,6 +10,6 @@ public class TenMinuteTimerController extends TimerController {
 
     public TenMinuteTimerController() {
         super(10, 5, new NoButtonsVisible());
-        setColors(Color.getHSBColor(262, 22, 70), Color.getHSBColor(360, 22, 70));
+        setColors(new Color(193, 175, 224), new Color(235, 183, 184));
     }
 }

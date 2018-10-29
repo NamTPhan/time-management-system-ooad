@@ -20,7 +20,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        if (settingsDao.getAll().size() == 0) {
+        if (settingsDao.getAll().isEmpty()) {
             settings = new Settings();
             settingsDao.save(settings);
         }

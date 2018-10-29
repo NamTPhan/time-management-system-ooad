@@ -10,7 +10,7 @@ public class HourTimerController extends TimerController {
     
     public HourTimerController() {
         super(60, 15, new AllButtonsVisible());
-        setColors(Color.getHSBColor(128, 35, 72), Color.getHSBColor(176, 27, 93));
+        setColors(new Color(152, 235, 163), new Color(171, 235, 230));
     }
 }
 

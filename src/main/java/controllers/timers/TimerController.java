@@ -14,6 +14,7 @@ import javafx.stage.StageStyle;
 import models.Session;
 
 import java.awt.*;
+import javafx.scene.layout.GridPane;
 
 public abstract class TimerController {
     // Initialize JavaFX object references
@@ -21,9 +22,11 @@ public abstract class TimerController {
     protected Button playButton, pauseButton, stopButton, settingsButton;
     @FXML
     protected Label timerLabel;
+    @FXML
+    protected GridPane timerBackground;
 
     private Session currentSession;
-    private Color backgroundColorWhenRunning, backgroundColorWhenInBreak;
+    private Color backgroundColorRunning, backgroundColorInBreak;
     private ButtonBehavior buttonBehavior;
 
     private final Timer timer;
@@ -55,8 +58,8 @@ public abstract class TimerController {
         this.currentSession = new Session();
         this.timer = new Timer(duration, breakDuration, this);
         this.buttonBehavior = buttonBehavior;
-        this.backgroundColorWhenRunning = Color.LIGHT_GRAY;
-        this.backgroundColorWhenInBreak = Color.BLUE;
+        this.backgroundColorRunning = Color.LIGHT_GRAY;
+        this.backgroundColorInBreak = Color.BLUE;
     }
 
     /**
@@ -75,6 +78,7 @@ public abstract class TimerController {
 
         timer.setupFXMLReferences(timerLabel);
         buttonBehavior.setupFXMLReferences(playButton, pauseButton, stopButton);
+        timerBackground.setStyle("-fx-background-color: rgb" + convertColorToRGB(backgroundColorRunning));
     }
 
     /**
@@ -122,15 +126,17 @@ public abstract class TimerController {
      */
     public void enterBreakTime() {
         buttonBehavior.playInBreak();
+        timerBackground.setStyle("-fx-background-color: rgb" + convertColorToRGB(backgroundColorInBreak));
     }
-
+    
     /**
      * Take action based on the fact that the timer has finished the break time
      */
     public void finishBreakTime() {
         buttonBehavior.resetButtons();
+        timerBackground.setStyle("-fx-background-color: rgb" + convertColorToRGB(backgroundColorRunning));
     }
-
+    
     /**
      * Set the colors of the timer(view)
      *
@@ -138,10 +144,25 @@ public abstract class TimerController {
      * @param bgInBreakTime  Color of the background when the timer is in a break state
      */
     public void setColors(Color bgWhileRunning, Color bgInBreakTime) {
-        this.backgroundColorWhenRunning = bgWhileRunning;
-        this.backgroundColorWhenInBreak = bgInBreakTime;
+        this.backgroundColorRunning = bgWhileRunning;
+        this.backgroundColorInBreak = bgInBreakTime;
     }
 
+    /**
+     * Converts a Color datatype to RGB
+     * @param colorToBeConverted
+     * @return rgb variables between brackets
+     */
+    private String convertColorToRGB(Color colorToBeConverted) {
+        String rgb = colorToBeConverted.getRed() 
+                + ", " 
+                + colorToBeConverted.getGreen() 
+                + ", " 
+                + colorToBeConverted.getBlue();
+        
+        return "(" + rgb + ")";
+    } 
+            
     /**
      * Opens the settings window
      */
