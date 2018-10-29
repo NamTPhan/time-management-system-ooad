@@ -30,7 +30,7 @@
                     <Insets bottom="80.0" left="20.0" right="20.0" top="20.0" />
                 </BorderPane.margin>
                 <children>
-                    <GridPane prefHeight="384.0" prefWidth="960.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <GridPane prefHeight="417.0" prefWidth="1240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="588.0" minWidth="10.0" prefWidth="588.0" />
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="481.0" minWidth="10.0" prefWidth="62.0" />
@@ -42,6 +42,7 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         </rowConstraints>
                         <children>
                             <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Notification Sound" textFill="WHITE">
@@ -101,6 +102,12 @@
                         </font>
                      </Label>
                      <ComboBox fx:id="roundSizeChoice" prefHeight="31.0" prefWidth="240.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                     <Label alignment="CENTER" prefHeight="21.0" prefWidth="480.0" text="Timer Type" textFill="WHITE" GridPane.rowIndex="5">
+                        <font>
+                           <Font name="System Bold" size="22.0" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="timerChoice" prefHeight="31.0" prefWidth="240.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                         </children>
                     </GridPane>
                 </children>
@@ -129,7 +136,7 @@
                      <Font name="System Bold" size="20.0" />
                   </font>
                </Label>
-               <Button fx:id="backToPomodoro" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#saveSettings" prefHeight="39.0" prefWidth="202.0" style="-fx-background-color: #66BB6A;" text="Back to Pomodoro" textFill="WHITE" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <Button fx:id="backToPomodoro" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#closeSettings" prefHeight="39.0" prefWidth="202.0" style="-fx-background-color: #66BB6A;" text="Back to Pomodoro" textFill="WHITE" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                   <font>
                      <Font name="System Bold" size="18.0" />
                   </font>

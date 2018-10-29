@@ -5,11 +5,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Nam Phan - 500769669
+ */
 public class SettingsDaoImplementation implements GenericDAO<Settings> {
 
     private List<Settings> settingsList = new ArrayList<>();
     private Settings settings;
 
+    /**
+     * @return settingsList A list that contains all the settings records in objects
+     * @throws DAOException Exception thrown in case of sql problems
+     */
     @Override
     public List<Settings> getAll() throws DAOException {
 
@@ -25,8 +32,9 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                 int sound = resultSet.getInt("sound");
                 int lengthShortBreak = resultSet.getInt("lengthShortBreak");
                 int lengthLongBreak = resultSet.getInt("lengthLongBreak");
+                int timerType = resultSet.getInt("timerType");
 
-                settingsList.add(new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak));
+                settingsList.add(new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak, timerType));
             }
         } catch (SQLException exception) {
             throw new DAOException(exception);
@@ -35,6 +43,11 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
         return settingsList;
     }
 
+    /**
+     * @param index The index of the settings configuration in the database
+     * @return settings A settings object with all the values from the database
+     * @throws DAOException Exception thrown in case of sql problems
+     */
     @Override
     public Settings getByIndex(int index) throws DAOException {
 
@@ -50,8 +63,9 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                 int sound = resultSet.getInt("sound");
                 int lengthShortBreak = resultSet.getInt("lengthShortBreak");
                 int lengthLongBreak = resultSet.getInt("lengthLongBreak");
+                int timerType = resultSet.getInt("timerType");
 
-                settings = new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak);
+                settings = new Settings(settingsId, dailyRoundSize, dailySessionGoal, sound, lengthShortBreak, lengthLongBreak, timerType);
             }
         } catch (SQLException exception) {
             throw new DAOException(exception);
@@ -60,15 +74,22 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
         return settings;
     }
 
+    /**
+     * @param settings The settings object that has been saved for the first time
+     * @return a boolean value. True is save successful, else an error will be printed
+     * @throws DAOException Exception thrown in case of sql problems
+     */
     @Override
     public boolean save(Settings settings) throws DAOException {
 
         try {
             DatabaseConnection dbConnection = DatabaseConnection.getInstance();
             String insertQuery =
-                    "INSERT INTO settings (settingsId, dailyRoundSize, dailySessionGoal,sound, lengthShortBreak, lengthLongBreak)" +
+                    "INSERT INTO settings (settingsId, dailyRoundSize, dailySessionGoal,sound, lengthShortBreak, lengthLongBreak, timerType)" +
                             "VALUES (" + null + ", " + settings.getRoundSize() + ", "
-                            + settings.getSessionGoal() + ", " + settings.getSound() + ", " + settings.getLengthShortBreak() + ", " + settings.getLengthLongBreak() + ");";
+                            + settings.getSessionGoal() + ", " + settings.getSound() + ", "
+                            + settings.getLengthShortBreak() + ", " + settings.getLengthLongBreak() + ", "
+                            + settings.getTimerType() + ");";
 
             dbConnection.executeUpdateQuery(insertQuery);
 
@@ -79,6 +100,12 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
         }
     }
 
+    /**
+     * @param index    The index of the settings configuration in the database
+     * @param settings The settings object that has been updated with new values
+     * @return a boolean value. True is save successful, else an error will be printed
+     * @throws DAOException Exception thrown in case of sql problems
+     */
     @Override
     public boolean update(int index, Settings settings) throws DAOException {
 
@@ -91,6 +118,7 @@ public class SettingsDaoImplementation implements GenericDAO<Settings> {
                             ",sound = " + settings.getSound() +
                             ", lengthShortBreak = " + settings.getLengthShortBreak() +
                             ", lengthLongBreak = " + settings.getLengthLongBreak() +
+                            ", timerType = " + settings.getTimerType() +
                             " WHERE settingsId = " + index + ";";
 
             dbConnection.executeUpdateQuery(insertQuery);

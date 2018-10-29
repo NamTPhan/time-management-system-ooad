@@ -4,7 +4,7 @@ package models;
  * This class represents a generic DAO exception. It should wrap any exception of the underlying
  * code, such as SQLExceptions.
  *
- * @author Nam Phan
+ * @author Nam Phan 500769669
  */
 public class DAOException extends RuntimeException{
 
