@@ -39,6 +39,8 @@ public class Main extends Application {
                 break;
         }
 
+        controller.setSettingsReference(settings);
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/views/session.fxml"));
         loader.setController(controller);

@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.GenericDAO;
@@ -25,6 +26,8 @@ import models.SettingsDaoImplementation;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 /**
@@ -44,6 +47,7 @@ public class SettingsController implements Initializable {
     private final int MAIN_SETTINGS_INDEX_CONFIG = 1;
     private final int DEFAULT_DROPDOWN_OPTION = 0;
     private int settingsIdLoadedFromDb;
+    private static String soundFile;
 
     private Settings settings = new Settings();
     private GenericDAO<Settings> settingsDao = new SettingsDaoImplementation();
@@ -213,5 +217,22 @@ public class SettingsController implements Initializable {
         dailyGoalLabelSlider.setText(String.valueOf(settings.getSessionGoal()));
         shortBreakLabelSlider.setText(String.valueOf(settings.getLengthShortBreak()));
         longBreakLabelSlider.setText(String.valueOf(settings.getLengthLongBreak()));
+    }
+
+    public static void playSound(Settings settings) {
+        switch (settings.getSound()) {
+            case 0:
+                soundFile = "src/main/resources/sounds/phone.mp3";
+                break;
+            case 1:
+                soundFile = "src/main/resources/sounds/alarmclock.mp3";
+                break;
+            default:
+                break;
+        }
+        Path p1 = Paths.get(soundFile);
+        AudioClip clip = new AudioClip(p1.toUri().toString());
+
+        clip.play();
     }
 }

@@ -1,5 +1,6 @@
 package controllers.timers;
 
+import controllers.SettingsController;
 import controllers.buttons.AllButtonsVisible;
 import controllers.buttons.ButtonBehavior;
 import controllers.timers.states.Timer;
@@ -14,7 +15,9 @@ import javafx.stage.StageStyle;
 import models.Session;
 
 import java.awt.*;
+
 import javafx.scene.layout.GridPane;
+import models.Settings;
 
 public abstract class TimerController {
     // Initialize JavaFX object references
@@ -30,6 +33,7 @@ public abstract class TimerController {
     private ButtonBehavior buttonBehavior;
 
     private final Timer timer;
+    private Settings settings;
 
     /**
      * This constructor is accessible from subclasses so users can create
@@ -121,22 +125,28 @@ public abstract class TimerController {
         currentSession = new Session(); // Remove the reference to the object
     }
 
+    public void setSettingsReference(Settings settings) {
+        this.settings = settings;
+    }
+
     /**
      * Take action based on the fact that the timer is in a break
      */
     public void enterBreakTime() {
         buttonBehavior.playInBreak();
         timerBackground.setStyle("-fx-background-color: rgb" + convertColorToRGB(backgroundColorInBreak));
+        SettingsController.playSound(settings);
     }
-    
+
     /**
      * Take action based on the fact that the timer has finished the break time
      */
     public void finishBreakTime() {
         buttonBehavior.resetButtons();
         timerBackground.setStyle("-fx-background-color: rgb" + convertColorToRGB(backgroundColorRunning));
+        SettingsController.playSound(settings);
     }
-    
+
     /**
      * Set the colors of the timer(view)
      *
@@ -150,19 +160,20 @@ public abstract class TimerController {
 
     /**
      * Converts a Color datatype to RGB
+     *
      * @param colorToBeConverted
      * @return rgb variables between brackets
      */
     private String convertColorToRGB(Color colorToBeConverted) {
-        String rgb = colorToBeConverted.getRed() 
-                + ", " 
-                + colorToBeConverted.getGreen() 
-                + ", " 
+        String rgb = colorToBeConverted.getRed()
+                + ", "
+                + colorToBeConverted.getGreen()
+                + ", "
                 + colorToBeConverted.getBlue();
-        
+
         return "(" + rgb + ")";
-    } 
-            
+    }
+
     /**
      * Opens the settings window
      */
