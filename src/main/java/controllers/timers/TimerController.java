@@ -75,6 +75,9 @@ public abstract class TimerController {
         stopButton.setOnAction(event -> {
             stopTimer();
         });
+        settingsButton.setOnAction(event -> {
+            openSettings();
+        });
 
         timer.setupFXMLReferences(timerLabel);
         buttonBehavior.setupFXMLReferences(playButton, pauseButton, stopButton);
@@ -179,7 +182,7 @@ public abstract class TimerController {
             stage.setScene(new Scene(root1));
             stage.show();
         } catch (Exception e) {
-            System.out.println("Cant load new window");
+            System.out.println("Cannot load new window");
         }
     }
 

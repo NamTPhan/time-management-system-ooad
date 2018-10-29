@@ -65,7 +65,7 @@
                   <Font size="96.0" />
                </font>
             </Label>
-            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#openSettings" text="Settings" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Button fx:id="settingsButton" mnemonicParsing="false" text="Settings" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
          </children>
       </GridPane>
    </center>
