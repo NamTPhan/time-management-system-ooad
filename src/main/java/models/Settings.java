@@ -126,6 +126,10 @@ public class Settings {
         return totalRounds;
     }
 
+    public boolean checkMaxValueLongBreak() {
+        return this.getLengthLongBreak() <= 30;
+    }
+
     @Override
     public String toString() {
         return "Settings{" +

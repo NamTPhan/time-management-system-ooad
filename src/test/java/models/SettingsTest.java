@@ -133,11 +133,29 @@ public class SettingsTest {
         assertThat(true, not(settings.checkTimerType()));
     }
 
+    @Test
+    public void checkMaximumLongBreak() {
+        for (Settings settings: settingsArray) {
+            assertTrue(settings.checkMaxValueLongBreak());
+        }
+    }
+
+    /**
+     * Set all settings configurations to default and
+     * check if the most recent added settings is equal to the rest
+     */
     @AfterClass
-    public static void ensureLastAddedSettingsConfigInvariant() {
+    public static void ensureSettingsInvariant() {
         // Current list
         for (Settings settings: settingsArray) {
-            System.out.println(settings.toString());
+            settings.setTimerType(0);
+        }
+
+        Settings recentSettings = new Settings(settingsArray.size() + 1,1,2,1,10,15,0);
+        settingsArray.add(recentSettings);
+
+        for (Settings settings: settingsArray) {
+            assertTrue(settings.getTimerType() == recentSettings.getTimerType());
         }
     }
 }
