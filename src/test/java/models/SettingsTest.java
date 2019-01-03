@@ -1,9 +1,6 @@
 package models;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -122,6 +119,8 @@ public class SettingsTest {
         settingsArray.set(settingsArray.size() - 1, settingsNull);
 
         assertThat(settingsArray.get(settingsArray.size() - 1), is(nullValue()));
+
+        settingsArray.remove(settingsArray.size() - 1);
     }
 
     @Test
@@ -134,5 +133,11 @@ public class SettingsTest {
         assertThat(true, not(settings.checkTimerType()));
     }
 
-    
+    @AfterClass
+    public static void ensureLastAddedSettingsConfigInvariant() {
+        // Current list
+        for (Settings settings: settingsArray) {
+            System.out.println(settings.toString());
+        }
+    }
 }
