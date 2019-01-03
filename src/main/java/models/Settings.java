@@ -6,6 +6,7 @@ package models;
 public class Settings {
 
     private int settingsId, roundSize, sessionGoal, sound, lengthShortBreak, lengthLongBreak, timerType;
+    private String totalRounds;
 
     // Default settings values
     private static final int DEFAULT_SETTINGS_ID = 1,
@@ -104,5 +105,37 @@ public class Settings {
 
     public void setTimerType(int timerType) {
         this.timerType = timerType;
+    }
+
+    public boolean checkTimerType() {
+        if (this.timerType == 0 || this.timerType == 1 || this.timerType == 2) {
+            return true;
+        }
+        return false;
+    }
+
+    public String checkRoundText() {
+        switch (this.roundSize) {
+            case 0:
+                totalRounds = "2 rounds";
+                break;
+            case 1:
+                totalRounds = "4 rounds";
+                break;
+        }
+        return totalRounds;
+    }
+
+    @Override
+    public String toString() {
+        return "Settings{" +
+                "settingsId=" + settingsId +
+                ", roundSize=" + roundSize +
+                ", sessionGoal=" + sessionGoal +
+                ", sound=" + sound +
+                ", lengthShortBreak=" + lengthShortBreak +
+                ", lengthLongBreak=" + lengthLongBreak +
+                ", timerType=" + timerType +
+                '}';
     }
 }

@@ -5,30 +5,28 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 public class SettingsTest {
 
-    private String totalRounds;
-    private static final int MAX_SETTINGS_ARRAY = 10;
-    private Settings[] settingsArray;
-    private Settings[] settingsArrayTemp;
+    private static List<Settings> settingsArray;
 
-    @Before
-    public void setUp() throws Exception {
-        settingsArray = new Settings[MAX_SETTINGS_ARRAY];
-        settingsArray[0] = new Settings(1, 0, 1, 0, 12, 20, 0);
-        settingsArray[1] = new Settings(2, 1, 5, 1, 12, 20, 1);
-        settingsArray[2] = new Settings(3, 1, 5, 1, 5, 30, 2);
-        settingsArray[3] = new Settings(4, 0, 15, 0, 15, 23, 0);
-        settingsArray[4] = new Settings(5, 1, 10, 1, 8, 10, 1);
+    @BeforeClass
+    public static void setUp() throws Exception {
+        settingsArray = new ArrayList<>();
+        settingsArray.add(new Settings(1, 0, 1, 0, 12, 20, 0));
+        settingsArray.add(new Settings(2, 1, 5, 1, 12, 20, 1));
+        settingsArray.add(new Settings(3, 1, 5, 1, 5, 30, 2));
+        settingsArray.add(new Settings(4, 0, 15, 0, 15, 23, 0));
+        settingsArray.add(new Settings(5, 1, 10, 1, 8, 10, 1));
 
-        settingsArrayTemp = new Settings[settingsArray.length];
-        for (int i = 0; i < settingsArray.length; i++) {
-            settingsArrayTemp[i] = settingsArray[i];
+        for (Settings settings : settingsArray) {
+            System.out.println(settings.toString());
         }
     }
 
@@ -40,70 +38,101 @@ public class SettingsTest {
      * This test will check if the round size text ends with 'rounds'
      */
     @Test
-    public void checkValidRoundSizeText() {
-        // A switch is needed to select the correct round size text
-        switch (settingsArray[0].getRoundSize()) {
-            case 0:
-                totalRounds = "2 rounds";
-                break;
-            case 1:
-                totalRounds = "4 rounds";
-                break;
-        }
-        assertThat(totalRounds, endsWith("rounds"));
+    public void checkValidRoundSizeTextForDatabase() {
+        Settings settings = new Settings();
+        settingsArray.add(settings);
+
+        String roundSizeText = settingsArray.get(settingsArray.size() - 1).checkRoundText();
+
+        assertThat(roundSizeText, endsWith("rounds"));
     }
 
     @Test
-    public void checkTypeOfObjectFromArray() {
-        Object object = settingsArray[2];
+    public void checkTypeOfObjectFromList() {
+        Settings newObject = new Settings();
+        settingsArray.add(newObject);
+
+        Object object = settingsArray.get(settingsArray.size() - 1);
         assertThat(object.getClass(), equalTo(Settings.class));
     }
 
     @Test
     public void compareObjectsLengthShortBreak() {
-        Integer settingsObjectOne = settingsArray[0].getLengthShortBreak();
-        Integer settingsObjectTwo = settingsArray[1].getLengthShortBreak();
+        Integer settingsObjectOne = settingsArray.get(0).getLengthShortBreak();
+        Integer settingsObjectTwo = settingsArray.get(1).getLengthShortBreak();
 
+        // Double check
+        assertTrue(settingsObjectOne == settingsObjectTwo);
         assertSame(settingsObjectOne, settingsObjectTwo);
     }
 
     @Test
     public void checkNegativeValueSessionGoal() {
         // Set session goal as a negative number
-        settingsArray[4].setSessionGoal(-1);
+        settingsArray.get(4).setSessionGoal(-1);
         // Get session goal value
-        int sessionGoal = settingsArray[4].getSessionGoal();
+        int sessionGoal = settingsArray.get(4).getSessionGoal();
 
         assertFalse(sessionGoal > 0);
     }
 
     @Test
     public void checkRangeLengthLongBreak() {
-        Settings settings = settingsArray[3];
+        Settings settings = settingsArray.get(3);
 
-        assertTrue(settings.getLengthLongBreak() >= 15 && settings.getLengthLongBreak() <= 30);
+        int lengthLongBreak = settings.getLengthLongBreak();
+
+        assertTrue(lengthLongBreak >= 15 && lengthLongBreak <= 30);
     }
 
     @Test
     public void compareTwoSettingsConfigShortBreaks() {
-        assertNotSame(settingsArray[3].getLengthShortBreak(), settingsArray[4].getLengthShortBreak());
+        Object objectOne = settingsArray.get(3);
+        Object objectTwo = settingsArray.get(4);
+
+        int objectOneShortBreak = ((Settings) objectOne).getLengthShortBreak();
+        int objectTwoShortBreak = ((Settings) objectTwo).getLengthShortBreak();
+
+        assertNotSame(objectOneShortBreak, objectTwoShortBreak);
     }
 
-    @Test(expected = ArrayIndexOutOfBoundsException.class)
-    public void getSettingsFromArray() {
-        settingsArray[0].setTimerType(1);
-        assertNotSame(0, settingsArray[0].getTimerType());
+    /**
+     * Forced error: Set timer type at an object on place 50, but the array length is max 10
+     */
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void setTimerTypeForInvalidSettings() {
+        Settings settingsConfigOne = settingsArray.get(0);
+        settingsConfigOne.setTimerType(1);
 
-        settingsArray[50].setTimerType(2);
+        Settings settingsConfigTwo = settingsArray.get(1);
+        settingsConfigTwo.setTimerType(0);
+
+        assertNotSame(settingsConfigOne.getTimerType(), settingsConfigTwo.getTimerType());
+
+        settingsArray.get(500).setTimerType(2);
+        System.out.println(settingsArray.get(500).toString());
     }
 
     @Test
     public void accessNonExistingObject() {
-        assertThat(settingsArray[8], is(nullValue()));
+        Settings settingsNull = new Settings();
+        settingsArray.add(settingsNull);
+
+        settingsNull = null;
+        settingsArray.set(settingsArray.size() - 1, settingsNull);
+
+        assertThat(settingsArray.get(settingsArray.size() - 1), is(nullValue()));
     }
 
-    @After
-    public void resetArray() {
-        settingsArray = settingsArrayTemp;
+    @Test
+    public void validationTimerStatus() {
+        // Use default settings configurations
+        Settings settings = new Settings();
+
+        settings.setTimerType(4);
+
+        assertThat(true, not(settings.checkTimerType()));
     }
+
+    
 }
