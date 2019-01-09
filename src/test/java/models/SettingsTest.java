@@ -25,6 +25,7 @@ public class SettingsTest {
         for (Settings settings : settingsArray) {
             System.out.println(settings.toString());
         }
+        System.out.println();
     }
 
     /**
@@ -156,6 +157,7 @@ public class SettingsTest {
 
         for (Settings settings: settingsArray) {
             assertTrue(settings.getTimerType() == recentSettings.getTimerType());
+            System.out.println(settings.toString());
         }
     }
 }
