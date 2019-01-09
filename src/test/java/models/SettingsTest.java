@@ -29,6 +29,8 @@ public class SettingsTest {
     }
 
     /**
+     * Boundary condition CORRECT: Conformance, check if round size has the correct format
+     *
      * The user interface dropdown for setting the round size works on the method like 0 = 2 rounds, 1 = 4 rounds.
      * That means if you select the first option the round size variabele will get the value 0,
      * which will be saved in the database.
@@ -45,6 +47,10 @@ public class SettingsTest {
         assertThat(roundSizeText, endsWith("rounds"));
     }
 
+    /**
+     * Boundary condition CORRECT: Reference applied,
+     * check if object is instance of some object type
+     */
     @Test
     public void checkTypeOfObjectFromList() {
         Settings newObject = new Settings();
@@ -54,6 +60,9 @@ public class SettingsTest {
         assertThat(object.getClass(), equalTo(Settings.class));
     }
 
+    /**
+     * Boundary condition CORRECT: Cardinality, enough data to compare two objects on several values
+     */
     @Test
     public void compareObjectsLengthShortBreak() {
         Integer settingsObjectOne = settingsArray.get(0).getLengthShortBreak();
@@ -64,6 +73,9 @@ public class SettingsTest {
         assertSame(settingsObjectOne, settingsObjectTwo);
     }
 
+    /**
+     * Boundary condition CORRECT: Conformance, check if session goal is in range or the correct format
+     */
     @Test
     public void checkNegativeValueSessionGoal() {
         // Set session goal as a negative number
@@ -74,6 +86,9 @@ public class SettingsTest {
         assertFalse(sessionGoal > 0);
     }
 
+    /**
+     * Boundary condition CORRECT: Range, check if length long break is in range
+     */
     @Test
     public void checkRangeLengthLongBreak() {
         Settings settings = settingsArray.get(3);
@@ -111,6 +126,10 @@ public class SettingsTest {
         System.out.println(settingsArray.get(500).toString());
     }
 
+    /**
+     * Boundary condition CORRECT: Time, first add then update then check validation and then remove.
+     * Everything happens in the order and in a short time
+     */
     @Test
     public void accessNonExistingObject() {
         Settings settingsNull = new Settings();
@@ -124,6 +143,9 @@ public class SettingsTest {
         settingsArray.remove(settingsArray.size() - 1);
     }
 
+    /**
+     * Boundary condition CORRECT: Conformance, check if timer type is valid
+     */
     @Test
     public void validationTimerStatus() {
         // Use default settings configurations
@@ -134,6 +156,9 @@ public class SettingsTest {
         assertThat(true, not(settings.checkTimerType()));
     }
 
+    /**
+     * Boundary condition CORRECT: Existence, all data has to exist or the test will fail
+     */
     @Test
     public void checkMaximumLongBreak() {
         for (Settings settings: settingsArray) {
@@ -142,6 +167,8 @@ public class SettingsTest {
     }
 
     /**
+     * Boundary condition CORRECT: Ordering, objects from list doesn't need to be sorted before updating
+     *
      * Set all settings configurations to default and
      * check if the most recent added settings is equal to the rest
      */
