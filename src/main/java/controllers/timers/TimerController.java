@@ -10,14 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import models.Session;
+import models.Settings;
 
 import java.awt.*;
-
-import javafx.scene.layout.GridPane;
-import models.Settings;
 
 public abstract class TimerController {
     // Initialize JavaFX object references
@@ -30,7 +29,7 @@ public abstract class TimerController {
 
     private Session currentSession;
     private Color backgroundColorRunning, backgroundColorInBreak;
-    private ButtonBehavior buttonBehavior;
+    //private ButtonBehavior buttonBehavior;
 
     private final Timer timer;
     private Settings settings;
@@ -61,7 +60,7 @@ public abstract class TimerController {
     protected TimerController(int duration, int breakDuration, ButtonBehavior buttonBehavior) {
         this.currentSession = new Session();
         this.timer = new Timer(duration, breakDuration, this);
-        this.buttonBehavior = buttonBehavior;
+        //this.buttonBehavior = buttonBehavior;
         this.backgroundColorRunning = Color.LIGHT_GRAY;
         this.backgroundColorInBreak = Color.BLUE;
     }
@@ -84,7 +83,7 @@ public abstract class TimerController {
         });
 
         timer.setupFXMLReferences(timerLabel);
-        buttonBehavior.setupFXMLReferences(playButton, pauseButton, stopButton);
+        //buttonBehavior.setupFXMLReferences(playButton, pauseButton, stopButton);
         timerBackground.setStyle("-fx-background-color: rgb" + convertColorToRGB(backgroundColorRunning));
     }
 
@@ -95,8 +94,8 @@ public abstract class TimerController {
         currentSession = (currentSession == null) ? new Session() : currentSession;
 
         // Change button behavior based on timer state
-        if (timer.inBreakTime) buttonBehavior.playInBreak();
-        else buttonBehavior.play();
+        //if (timer.inBreakTime) buttonBehavior.playInBreak();
+        //else buttonBehavior.play();
 
         timer.start();
     }
@@ -106,12 +105,15 @@ public abstract class TimerController {
      * already invested
      */
     public void pauseTimer() {
+        if (this instanceof TenMinuteTimerController)
+            return;
+
         timer.pause();
 
         if (timer.inBreakTime) {
-            buttonBehavior.pauseInBreak();
+            //buttonBehavior.pauseInBreak();
         } else {
-            buttonBehavior.pause();
+            //buttonBehavior.pause();
             updateInvestedTime();
         }
     }
@@ -120,9 +122,12 @@ public abstract class TimerController {
      * Stop the timer and resets the values
      */
     public void stopTimer() {
+        if (this instanceof PomodoroTimerController || this instanceof TenMinuteTimerController)
+            return;
+
         timer.stop();
 
-        buttonBehavior.resetButtons();
+        //buttonBehavior.resetButtons();
         updateInvestedTime();
 
         currentSession = new Session(); // Remove the reference to the object
@@ -136,7 +141,7 @@ public abstract class TimerController {
      * Take action based on the fact that the timer is in a break
      */
     public void enterBreakTime() {
-        buttonBehavior.playInBreak();
+        //buttonBehavior.playInBreak();
         timerBackground.setStyle("-fx-background-color: rgb" + convertColorToRGB(backgroundColorInBreak));
         SettingsController.playSound(settings);
     }
@@ -145,9 +150,13 @@ public abstract class TimerController {
      * Take action based on the fact that the timer has finished the break time
      */
     public void finishBreakTime() {
-        buttonBehavior.resetButtons();
+        //buttonBehavior.resetButtons();
         timerBackground.setStyle("-fx-background-color: rgb" + convertColorToRGB(backgroundColorRunning));
         SettingsController.playSound(settings);
+    }
+
+    public Session getSession(){
+        return currentSession;
     }
 
     /**
@@ -197,10 +206,29 @@ public abstract class TimerController {
         }
     }
 
+    public int getInvestedTime(){
+        return currentSession.getInvestedTime();
+    }
     /**
      * Calculates and updates the time that is invested in a task
      */
     private void updateInvestedTime() {
         currentSession.setInvestedTime(timer.getInvestedTime());
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public Session getCurrentSession () {
+        return currentSession;
+    }
+
+    public Color getBackgroundColor() {
+        return backgroundColorRunning;
+    }
+
+    public Color getBackgroundColorInBreak() {
+        return backgroundColorInBreak;
     }
 }

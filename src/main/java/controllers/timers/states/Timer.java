@@ -15,7 +15,7 @@ public class Timer implements TimerState {
     private final TimerController timerController;
 
     // State variables
-    private TimerState timerState;
+    protected TimerState timerState;
     private final TimerState RUNNING_TIMER_STATE,
             PAUSE_TIMER_STATE,
             BREAK_TIMER_STATE,
@@ -86,7 +86,19 @@ public class Timer implements TimerState {
      * @return INT invested time
      */
     public int getInvestedTime() {
-        return timerDuration - ((timerMinutes * 60) + timerSeconds);
+        if (timerDuration > 0) {
+            return timerDuration - ((timerMinutes * 60) + timerSeconds);
+        } else {
+            return (timerMinutes * 60) + timerSeconds;
+        }
+    }
+
+    public int getTimerMinutes(){
+        return timerMinutes;
+    }
+
+    public int getTimerSeconds(){
+        return timerSeconds;
     }
 
     /**
@@ -100,7 +112,8 @@ public class Timer implements TimerState {
         }
 
         // Visually update the timer
-        timerLabel.setText(String.format("%1$02d:%2$02d", timerMinutes, timerSeconds));
+        if (timerLabel != null)
+            timerLabel.setText(String.format("%1$02d:%2$02d", timerMinutes, timerSeconds));
 
         if (timerSeconds <= 0 && timerMinutes <= 0)
             timeline.stop(); // Stop timer if it is at zero
@@ -191,5 +204,9 @@ public class Timer implements TimerState {
 
     public TimerState getIdleTimerState() {
         return IDLE_TIMER_STATE;
+    }
+
+    public TimerState getTimerState() {
+        return timerState;
     }
 }

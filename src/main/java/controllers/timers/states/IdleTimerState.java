@@ -29,15 +29,18 @@ public class IdleTimerState implements TimerState {
     @Override
     public void pause() {
         // You are not able to pause when the timer is not active.
+        timer.setTimerState(timer.getIdleTimerState());
     }
 
     @Override
     public void stop() {
         // You are not able to stop when the timer is not active.
+        timer.setTimerState(timer.getIdleTimerState());
     }
 
     @Override
     public void startBreakTime() {
         // You are not able to take a break while idling.
+        timer.setTimerState(timer.getIdleTimerState());
     }
 }

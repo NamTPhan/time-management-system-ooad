@@ -10,6 +10,7 @@ public class RunningTimerState implements TimerState {
     @Override
     public void start() {
         // You can't start more than one timer.
+        timer.setTimerState(timer.getRunningTimerState());
     }
 
     @Override

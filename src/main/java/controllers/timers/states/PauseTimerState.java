@@ -22,11 +22,13 @@ public class PauseTimerState implements TimerState {
     @Override
     public void pause() {
         // A paused timer can not be paused again
+        timer.setTimerState(timer.getPauseTimerState());
     }
 
     @Override
     public void stop() {
         // A paused timer can not be stopped
+        timer.setTimerState(timer.getPauseTimerState());
     }
 
     @Override

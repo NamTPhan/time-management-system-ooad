@@ -1,6 +1,5 @@
 package models;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public class Session {
@@ -18,6 +17,7 @@ public class Session {
     public void setInvestedTime(int seconds) {
         this.investedTime = seconds;
     }
+    public int getInvestedTime() {return this.investedTime; }
 
     @Override
     public String toString() {
