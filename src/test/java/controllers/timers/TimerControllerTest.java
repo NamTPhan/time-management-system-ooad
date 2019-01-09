@@ -29,6 +29,24 @@ public class TimerControllerTest  {
         timerControllers[2] = new TenMinuteTimerController();
     }
 
+    /*
+    CORRECT methods used (Range):
+        -   Is it possible to create a timer with a really big duration of 600 minutes
+    NO HAMCREST
+     */
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void createTimerControllerThatIsToBig(){
+        TimerController controller = new OtherTimerController(600, 15);
+    }
+
+    /*
+    CORRECT methods used (Conformance):
+        - Color as dataType
+    Reference:
+        - Color is as assumed?
+
+    NO HAMCREST
+     */
     @Test
     public void correctBackgroundOnEveryTimer(){
         Color backgroundOfTimer, backgroundOfTimerInBreak;
@@ -50,6 +68,11 @@ public class TimerControllerTest  {
         }
     }
 
+    /*
+    CORRECT methods used (Existence):
+        -   assertNull(), check if the JavaFX elements are made.
+    No HAMCREST
+     */
     @Test
     public void javaFXElementsAreInitialized(){
         // JavaFX elements are not suppose to be created when
@@ -62,18 +85,36 @@ public class TimerControllerTest  {
         assertNull(hourController.timerBackground);
     }
 
+    /*
+    CORRECT methods used (Range):
+        - is()
+        - greaterThan()
+     Ordering:
+        - seconds are in milliseconds
+
+     HAMCREST: greaterThan(), is(), both(), lessThan()
+     */
     @Test
     public void checkChangeInSessionsInvestedTime() throws InterruptedException {
         // Make sure the session is new
         assertThat(hourController.getSession().getInvestedTime(), is(0));
 
         hourController.startTimer();
-        Thread.sleep(10);     // Wait 1.2 miliseconds
+        Thread.sleep(100);     // Wait 10 milliseconds
         hourController.pauseTimer();
 
         assertThat(hourController.getSession().getInvestedTime(), greaterThan(0));
+        assertThat(hourController.getSession().getInvestedTime(), is(both(greaterThan(3000)).and(lessThan(4000))));
     }
 
+    /*
+    CORRECT methods used (Existence):
+        - assertNotNull() on a session
+    Cardinality:
+        - assertNotSame() check if new session is made, so the old is not being recycled.
+
+     NO HAMCREST
+     */
     @Test
     public void createNewSessionAfterTimerStopped(){
         // At this stage, the timer suppose to be filled
@@ -88,6 +129,12 @@ public class TimerControllerTest  {
 
     }
 
+    /*
+    CORRECT methods used (Reference/Existence):
+        -   Old session is same after resuming the timer.
+
+    HAMCREST: is(), sameInstance()
+     */
     @Test
     public void sessionResumesAfterResumingTimer(){
         Session oldSession = hourController.getSession();
@@ -97,9 +144,18 @@ public class TimerControllerTest  {
         hourController.startTimer();
 
         // Check if session is still the same
-        assertSame(oldSession, hourController.getCurrentSession());
+        assertThat(oldSession,is(sameInstance(hourController.getCurrentSession())));
     }
 
+    /*
+    CORRECT methods used (Reference):
+        - instanceof condition to take the correct controller
+    Existence:
+        - is(equalTo()), does the timer have the correct time duration?
+        - assertSame() to check if the seconds are set to the correct value
+
+     HAMCREST: is(), equalTo()
+     */
     @Test
     public void timerBeginsAtTheCorrectTime(){
         for (TimerController controller: timerControllers) {
@@ -114,6 +170,12 @@ public class TimerControllerTest  {
         }
     }
 
+    /*
+    CORRECT methods used (Time):
+        -   Check if the state is correct when starting the timer
+
+     NO HAMCREST
+     */
     @Test
     public void checkStartingStateOfEachController(){
         // Test each timer if they are able to start correctly
@@ -123,7 +185,14 @@ public class TimerControllerTest  {
         }
     }
 
+    /*
+    CORRECT methods used (Time):
+        - Check if the behavior changes accordingly based on the actions taken upon the timer
+    Reference:
+        -   Timer is in the correct state. Check if the timer's state is the same as a reference to the state classes
 
+    NO HAMCREST
+     */
     @Test
     public void checkCorrectBehaviorOfHourTimer(){
         TimerController controller = new HourTimerController();
@@ -140,6 +209,14 @@ public class TimerControllerTest  {
         assertTrue(controller.getTimer().getTimerState() instanceof IdleTimerState);
     }
 
+    /*
+    CORRECT methods used (Time):
+        - Check if the behavior changes accordingly based on the actions taken upon the timer
+    Reference:
+        -   Timer is in the correct state. Check if the timer's state is the same as a reference to the state classes
+
+     NO HAMCREST
+     */
     @Test
     public void checkCorrectBehaviorOfPomodoroTimer(){
         TimerController controller = new PomodoroTimerController();
@@ -156,6 +233,14 @@ public class TimerControllerTest  {
         assertTrue(controller.getTimer().getTimerState() instanceof RunningTimerState);
     }
 
+    /*
+    CORRECT methods used (Time):
+        - Check if the behavior changes accordingly based on the actions taken upon the timer
+    Reference:
+        -   Timer is in the correct state. Check if the timer's state is the same as a reference to the state classes
+
+     NO HAMCREST
+     */
     @Test
     public void checkCorrectBehaviorOfTenMinuteTimer(){
         TimerController controller = new TenMinuteTimerController();
